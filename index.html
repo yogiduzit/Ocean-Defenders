@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <title> My First Phaser Application</title>
+      <script src="https://cdn.jsdelivr.net/npm/phaser@3.15.1/dist/phaser-arcade-physics.min.js"></script>
+    </head>
+    <body>
+      <script>
+        /**
+         * Defines the configuration of the phaser game.
+         *
+         * type variable defines the rendering context that we want to use
+         * either webGL or Canvas
+         */
+        var config = {
+          type: Phaser.AUTO,
+          width: 800,
+          height: 600,
+          physics: {
+            default: 'arcade',
+            arcade: {
+              gravity: {y: 300}
+            },
+          },
+          scene: {
+              preload: preload,
+              create: create
+            }
+        };
+
+        /*
+         * An instance of phaser.game objects is assigned to
+         * a local variable by passing the required configuration.
+         */
+        var game = new Phaser.Game(config);
+
+        /**
+         * Loads the assets and assigns a specific key
+         * which can be further referenced to access this image.
+         */
+        function preload()
+        {
+          this.load.setBaseURL('https://labs.phaser.io');
+
+          this.load.image('sky', 'assets/skies/space3.png');
+          this.load.image('logo', 'assets/sprites/phaser3-logo.png');
+          this.load.image('red', 'assets/particles/red.png');
+        }
+
+        /**
+         * Displays any preloaded assets.
+         */
+        function create()
+        {
+          this.add.image(400, 300, 'sky');
+
+          var particles = this.add.particles('red');
+
+          var emitter = particles.createEmitter({
+            speed: 1000,
+            scale: {start: 1, end: 0},
+            blendMode: 'ADD'
+          });
+
+          var logo = this.physics.add.image(400, 100, 'logo');
+
+          logo.setVelocity(300, 200);
+          logo.setBounce(1, 1.001);
+          logo.setCollideWorldBounds(true);
+
+          console.log(logo);
+          emitter.startFollow(logo);
+        }
+        
+      </script>
+    </body>
+  </html>
