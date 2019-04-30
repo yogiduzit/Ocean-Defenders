@@ -1,9 +1,10 @@
 var config = {
   type: Phaser.AUTO,
-  parent: content,
+  parent: 'content',
   width: 640,
   height: 512,
   scene: {
+    key: 'main',
     preload: preload,
     create: create,
     update: update
@@ -14,7 +15,6 @@ var game = new Phaser.Game(config);
 
 var graphics;
 var path;
-
 
 function preload() {
   // Loads the game assets like enemies and turrets
