@@ -36,14 +36,6 @@ var map =  [[ 0,-1, 0, 0, 0, 0, 0, 0, 0, 0],
 function preload() {    
     this.load.atlas('sprites', 'assets/spritesheet.png', 'assets/spritesheet.json');
     this.load.image('bullet', 'assets/bullet.png');
-    this.load.image('water-tile-horizontal', 'assets/waterTile6.png');
-    this.load.image('water-tile-turn-right', 'assets/waterTile32.png');
-    this.load.image('water-tile-turn-down', 'assets/waterTile23.png');
-    this.load.image('water-tile-vertical', 'assets/waterTile41.png');
-    this.load.image('grass-tile', 'assets/terrainTile3.png');
-    
-
-    this.load.tilemapTiledJSON("map", "assets/map.json");
 }
 
 var Enemy = new Phaser.Class({
@@ -65,7 +57,7 @@ var Enemy = new Phaser.Class({
             this.follower.t = 0;
             this.hp = 100;
             
-           // path.getPoint(this.follower.t, this.follower.vec);
+            path.getPoint(this.follower.t, this.follower.vec);
             
             this.setPosition(this.follower.vec.x, this.follower.vec.y);            
         },
@@ -81,7 +73,7 @@ var Enemy = new Phaser.Class({
         update: function (time, delta)
         {
             this.follower.t += ENEMY_SPEED * delta;
-           // path.getPoint(this.follower.t, this.follower.vec);
+            path.getPoint(this.follower.t, this.follower.vec);
             
             this.setPosition(this.follower.vec.x, this.follower.vec.y);
 
@@ -187,37 +179,14 @@ var Bullet = new Phaser.Class({
  
 function create() {
     var graphics = this.add.graphics();    
-    /*drawLines(graphics);*/
-
-  /*  for (let i = 0; i < 3; i++) {
-        this.add.image(64, i * 64, 'water-tile-vertical');
-    }
-    this.add.image(64, 192, 'water-tile-turn-right');
-
-    for (let i = 0; i < 4; i++) {
-        this.add.image(128 + i * 64, 192, 'water-tile-horizontal');
-    }
-    
-    path = this.add.path(64, 0);
-    path.lineTo(64, 192);
-    path.lineTo(384, 192);
-    path.lineTo(384, 320);
-    path.lineTo(512, 320)
-    path.lineTo(512, 512);
-    path.lineTo(576, 512);
+    drawLines(graphics);
+    path = this.add.path(96, -32);
+    path.lineTo(96, 164);
+    path.lineTo(480, 164);
+    path.lineTo(480, 544);
     
     graphics.lineStyle(2, 0xffffff, 1);
     path.draw(graphics);
-    */
-    const map = this.make.tilemap({key: "map"});
-
-    const grassTile = map.addTilesetImage('terrainTile3', 'grass-tile');
-    const waterTurnDown = map.addTilesetImage("waterTile23", "water-tile-turn-down");
-    const waterHorizontal = map.addTilesetImage("waterTile6", "water-tile-horizontal");
-    const waterVertical = map.addTilesetImage("waterTile41", "water-tile-vertical");
-    const waterTurnRight = map.addTilesetImage("waterTile32", "water-tile-turn-right");
-    
-
     
     enemies = this.physics.add.group({ classType: Enemy, runChildUpdate: true });
     
@@ -243,7 +212,7 @@ function damageEnemy(enemy, bullet) {
         enemy.receiveDamage(BULLET_DAMAGE);
     }
 }
-/*
+
 function drawLines(graphics) {
     graphics.lineStyle(1, 0x0000ff, 0.8);
     for(var i = 0; i < 8; i++) {
@@ -256,7 +225,6 @@ function drawLines(graphics) {
     }
     graphics.strokePath();
 }
-*/
 
 function update(time, delta) {  
 
