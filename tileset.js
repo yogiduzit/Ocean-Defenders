@@ -14,7 +14,7 @@ var config = {
   }
 };
 var game = new Phaser.Game(config);
-const ENEMY_SPEED = 1/5000;
+const ENEMY_SPEED = 1/500;
 var enemies;
 var graphics;
 var path;

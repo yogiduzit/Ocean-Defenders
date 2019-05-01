@@ -24,6 +24,7 @@ var ENEMY_SPEED = 1/10000;
 
 var BULLET_DAMAGE = 50;
 
+// Creates a map 
 var map =  [[ 0,-1, 0, 0, 0, 0, 0, 0, 0, 0],
             [ 0,-1, 0, 0, 0, 0, 0, 0, 0, 0],
             [ 0,-1,-1,-1,-1,-1,-1,-1, 0, 0],
@@ -37,6 +38,7 @@ function preload() {
     this.load.atlas('sprites', 'assets/spritesheet.png', 'assets/spritesheet.json');
     this.load.image('bullet', 'assets/bullet.png');
 }
+
 
 var Enemy = new Phaser.Class({
 
