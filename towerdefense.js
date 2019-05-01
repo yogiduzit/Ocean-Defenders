@@ -121,10 +121,14 @@ function update(time, delta) {
       enemy.setActive(true);
       enemy.setVisible(true);
       enemy.startOnPath();
-      
+
       this.nextEnemy = time + 2000;
     }
   }
+}
+
+function createPath() {
+  
 }
 
 
