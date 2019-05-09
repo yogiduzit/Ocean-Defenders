@@ -7,20 +7,22 @@ public class Enemy : MonoBehaviour {
     public float startSpeed = 10.0f;
     public GameObject deathEffect;
     private bool isDead;
+    public string enemyType;
 
     [HideInInspector]
     public float speed;
-    public float startHealthEnemy1 = 100;
-    public float startHealthEnemy2 = 150;
+    public float startHealth;
+
     private float health;
     public int worth = 50;
+
 
     [Header ("Unity Stuff")]
     public Image healthBar;
 
     // Start is called before the first frame update
     void Start () {
-        health = startHealthEnemy1;
+        health = startHealth;
         speed = startSpeed;
         isDead = false;
     }
@@ -31,7 +33,7 @@ public class Enemy : MonoBehaviour {
     }
     public void takeDamage (float amount) {
         health -= amount;
-        healthBar.fillAmount = health / startHealthEnemy1;
+        healthBar.fillAmount = health / startHealth;
         if (health <= 0 && !isDead) {
             Die ();
         }
@@ -39,6 +41,7 @@ public class Enemy : MonoBehaviour {
     public void Slow (float slowAmount) {
         speed *= 1.0f - slowAmount;
     }
+ 
     private void Die () {
 
         isDead = true;
@@ -48,5 +51,4 @@ public class Enemy : MonoBehaviour {
         Destroy (effect, 5f);
         Destroy (this.gameObject);
     }
-
 }
