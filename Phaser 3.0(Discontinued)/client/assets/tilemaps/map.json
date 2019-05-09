@@ -1,0 +1,41 @@
+{
+    "height": 8,
+    "infinite": false,
+    "layers": [
+        {
+            "data": [34, 36, 34, 34, 34, 34, 34, 34, 34, 36, 34, 34, 34, 34, 34, 34, 34, 36, 34, 34, 34, 34, 34, 34, 34, 36, 34, 34, 34, 34, 34, 34, 34, 2684354599, 75, 75, 75, 75, 2684354598, 34, 34, 34, 34, 34, 34, 34, 36, 34, 34, 34, 34, 34, 34, 34, 36, 34, 34, 34, 34, 34, 34, 34, 36, 34],
+            "height": 8,
+            "id": 1,
+            "name": "Tile Layer 1",
+            "opacity": 1,
+            "type": "tilelayer",
+            "visible": true,
+            "width": 8,
+            "x": 0,
+            "y": 0
+        }],
+    "nextlayerid": 2,
+    "nextobjectid": 1,
+    "orientation": "orthogonal",
+    "renderorder": "left-down",
+    "tiledversion": "1.2.3",
+    "tileheight": 64,
+    "tilesets": [
+        {
+            "columns": 9,
+            "firstgid": 1,
+            "image": "/tilesheet.png",
+            "imageheight": 576,
+            "imagewidth": 576,
+            "margin": 0,
+            "name": "tilesheet",
+            "spacing": 0,
+            "tilecount": 81,
+            "tileheight": 64,
+            "tilewidth": 64
+        }],
+    "tilewidth": 64,
+    "type": "map",
+    "version": 1.2,
+    "width": 8
+}

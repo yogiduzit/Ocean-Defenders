@@ -1,0 +1,36 @@
+﻿Website
+* Landing page should have a loop of the game playing as the background
+* Home page, info page, instructions page.
+* Top X highscores saved in db
+Tower Defense
+* Fixed cam 
+Tiles
+* River 
+* Dirt 
+* Grass
+* Ocean
+Turrets
+* Water purifier(Clean pollution)
+* Garbage Sorter(Clean waste)
+* Research Lab(Produces Research)
+* Recycle plant(Produces Green Level)/Composter
+* Trees(Produces O2)
+Currency
+* O2 (Buy/Build)
+* Green Level (HP)
+* Research
+Progression
+* Time/Level
+* Difficulty increases every year (2019)
+Mechanics
+* Volunteers
+* Adjacent bonus
+* Tile restrictions
+Tower
+* City 
+* Ocean
+Enemies
+* Garbage
+* Food waste
+* Radioactive waste
+* Pollution

@@ -51,6 +51,4 @@ public class Enemy : MonoBehaviour {
         Destroy (effect, 5f);
         Destroy (this.gameObject);
     }
-    
-
 }

@@ -80,10 +80,5 @@ public class WaveSpawner : MonoBehaviour
 
     }
 }
-  /*  int NumberEnemyTrash(int waveIndex)
-    {
-        this.waveIndex = waveIndex * wave
-        return 0;
-    }
-}
-*/
+  
+
