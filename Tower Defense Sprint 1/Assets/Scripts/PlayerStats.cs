@@ -13,5 +13,4 @@ public class PlayerStats : MonoBehaviour {
         Health = startHealth;
         Waves = 0;
     }
-
 }

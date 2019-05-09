@@ -55,12 +55,13 @@ public class Node : MonoBehaviour {
 
     private void OnMouseDown () {
 
+        Debug.Log("clicked");
         if (!BuildManager.instance.CanBuild) { //If we cannot build we should exit this function.
             Debug.Log ("cannot build because turret has not been selected");
             return;
         }
 
-        if (turret != null) {
+        if (turret = null) {
 
             /* There already is a turret on this tile. */
             /* Functionality to be implemented later:
@@ -72,6 +73,7 @@ public class Node : MonoBehaviour {
             return;
         } else {
             BuildManager.instance.BuildTurretOn (this);
+            Debug.Log(this);
         }
 
     }
@@ -80,5 +82,4 @@ public class Node : MonoBehaviour {
 
         return transform.position + positionOffset;
     }
-
 }

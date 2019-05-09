@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour {
-    public CameraShake camerashake;
+    public Camera myCamera;
     public Vector3 positionOffset;
     public static BuildManager instance;
     private TurretBluePrint turretToBuild;
@@ -41,7 +41,7 @@ public class BuildManager : MonoBehaviour {
             node.turret = turret;
             Debug.Log ("you spent: " + turretToBuild.cost + " and have " + PlayerStats.Money + " left");
             turretToBuild = null; // Once you have purchased a turret you have to press the correct button to rebuild. 
-            StartCoroutine (camerashake.Shake (0.10f, 0.35f));
+            //StartCoroutine (myCamera.GetComponent<CamControl>().Shake (0.10f, 0.35f));
         }
 
     }
@@ -70,5 +70,4 @@ public class BuildManager : MonoBehaviour {
             }
         }
     }
-
 }
