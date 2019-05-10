@@ -1,7 +1,7 @@
 using UnityEngine;
 
 public class BuildManager : MonoBehaviour {
-    public CameraShake camerashake;
+    public Camera myCamera;
     public Vector3 positionOffset;
     public static BuildManager instance;
     private TurretBluePrint turretToBuild;
@@ -34,14 +34,16 @@ public class BuildManager : MonoBehaviour {
             Debug.Log ("Not enough money to build, you only have " + PlayerStats.Money);
             return;
         } else {
+
             PlayerStats.Money -= turretToBuild.cost;
 
-            GameObject turret = (GameObject) Instantiate (turretToBuild.prefab, node.GetBuildPosition (), Quaternion.identity);
+            Debug.Log("wtf" + node.GetBuildPosition());
+            GameObject turret = (GameObject) Instantiate (turretToBuild.prefab, node.GetBuildPosition() + positionOffset, Quaternion.identity);
             turret.name = turretToBuild.name; // Set the name of the created game object to the blueprint name
             node.turret = turret;
             Debug.Log ("you spent: " + turretToBuild.cost + " and have " + PlayerStats.Money + " left");
             turretToBuild = null; // Once you have purchased a turret you have to press the correct button to rebuild. 
-            StartCoroutine (camerashake.Shake (0.10f, 0.35f));
+            //StartCoroutine (myCamera.GetComponent<CamControl>().Shake (0.10f, 0.35f));
         }
 
     }
