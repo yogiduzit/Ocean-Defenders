@@ -13,15 +13,17 @@ var config = {
       update: update
   }
 };
-var game = new Phaser.Game(config);
-const ENEMY_SPEED = 1/5000;
-var enemies;
-var graphics;
-var path;
-var TreeTurrets;
-var numberTurrets;
+let game = new Phaser.Game(config);
 
-var gridMap = [[0, -1, -1, 0, 0, 0, 0, 0, 0, 0],
+const ENEMY_SPEED = 1/5000;
+const BULLET_DAMAGE = 50;
+let enemies;
+let graphics;
+let path;
+let TreeTurrets;
+let bullets;
+
+let gridMap = [[0, -1, -1, 0, 0, 0, 0, 0, 0, 0],
                [0, -1, -1, 0, 0, 0, 0, 0, 0, 0],                                
                [0, -1, -1, 0, 0, 0, 0, 0, 0, 0],
                [0, -1, -1, -1, -1, -1, -1, -1, 0, 0],                                
@@ -46,6 +48,7 @@ function preload() {
   //Loads an image which can be reference by the name 'bullet'
   this.load.image('garbage', 'assets/garbagebin.png');
   this.load.image('tree', 'assets/tree.png');
+  this.load.image('bullet', 'assets/bullet.png');
 
   this.load.tilemapTiledJSON("map", "assets/map.json");
 
@@ -53,7 +56,7 @@ function preload() {
 /**
  * Describes the appearance and behaviour of enemies.
  */
-var Enemy = new Phaser.Class({
+let Enemy = new Phaser.Class({
   Extends: Phaser.GameObjects.Image,
 
   initialize: 
@@ -68,6 +71,7 @@ var Enemy = new Phaser.Class({
       t: 0,
       vec: new Phaser.Math.Vector2() 
     };
+    this.hp = 0;
     /* 
      * 't' Checks the progress of the enemy on the path
      * At the beginning its 0, and at the end it's 1
@@ -79,6 +83,7 @@ var Enemy = new Phaser.Class({
 
   startOnPath: function() {
     this.follower.t = 0;
+    this.hp = 1;
     // Setting 't' to '0' initially.
 
     path.getPoint(this.follower.t, this.follower.vec);
@@ -86,6 +91,18 @@ var Enemy = new Phaser.Class({
 
     this.setPosition(this.follower.vec.x, this.follower.vec.y);
     // Sets the initial position of the enemies as recieved.
+  },
+  receiveDamage: function(damage) {
+    this.hp -= damage;
+      
+        
+    
+    // if hp drops below 0 we deactivate this enemy
+    if(this.hp <= 0) {
+    
+        this.setActive(false);
+        this.setVisible(false);      
+    }
   },
 
 
@@ -102,8 +119,18 @@ var Enemy = new Phaser.Class({
       this.setActive(false);
       this.setVisible(false);
     }
+    
   }
 });
+
+function getEnemy(x, y, distance) {
+  let enemyUnits = enemies.getChildren();
+  for (let i = 0; i < enemyUnits.length; i++) {
+    if (enemyUnits[i].active && Phaser.Math.Distance.Between(x, y, enemyUnits[i].x, enemyUnits[i].y) < distance) 
+      return enemyUnits[i];
+    }
+    return false;
+}
 
 var TreeTurret = new Phaser.Class({
   Extends: Phaser.GameObjects.Image,
@@ -115,21 +142,79 @@ var TreeTurret = new Phaser.Class({
 
     //nextTic is like an instance variable that defines how much time a turret will take to shoot.
     this.nextTic = 0;
-    this.count = 4;
+    
   },
 
   place: function(i, j) {
-    console.log(i + " " + j);
+   
     this.y = j * 32 + 16;
     this.x = i * 32 + 16;
     gridMap[i][j] = 1;
   },
-
+  fire: function() {
+    let enemy = getEnemy(this.x, this.y, 200);
+    if(enemy) {
+        let angle = Phaser.Math.Angle.Between(this.x, this.y, enemy.x, enemy.y);
+        addBullet(this.x, this.y, angle);
+        this.angle = (angle + Math.PI/2) * Phaser.Math.RAD_TO_DEG;
+    }
+  },
   update: function(time, delta) {
     // Shoot after every second.
     if (time > this.nextTic) {
+      this.fire();
       this.nextTic = time + 1000;
     }
+  }
+
+});
+
+var Bullet = new Phaser.Class({
+
+  Extends: Phaser.GameObjects.Image,
+
+  initialize:
+
+  function Bullet (scene)
+  {
+      Phaser.GameObjects.Image.call(this, scene, 0, 0, 'bullet');
+
+      this.incX = 0;
+      this.incY = 0;
+      this.lifespan = 0;
+
+      this.speed = Phaser.Math.GetSpeed(600, 1);
+  },
+
+  fire: function (x, y, angle)
+  {
+      this.setActive(true);
+      this.setVisible(true);
+      //  Bullets fire from the middle of the screen to the given x/y
+      this.setPosition(x, y);
+      
+  //  we don't need to rotate the bullets as they are round
+  //    this.setRotation(angle);
+
+      this.dx = Math.cos(angle);
+      this.dy = Math.sin(angle);
+
+      this.lifespan = 1000;
+  },
+
+  update: function (time, delta)
+  {
+      this.lifespan -= delta;
+
+      this.x += this.dx * (this.speed * delta);
+      this.y += this.dy * (this.speed * delta);
+
+      if (this.lifespan <= 0)
+      {
+        
+          this.setActive(false);
+          this.setVisible(false);
+      }
   }
 
 });
@@ -159,41 +244,44 @@ function create() {
     classType: Enemy,
     runChildUpdate: true
   });
-  this.nextEnemy = 0;
+  
 
   TreeTurrets = this.add.group({
     classType: TreeTurret,
     runChildUpdate: true
   });
 
+  bullets = this.physics.add.group({
+    classType: Bullet,
+    runChildUpdate: true 
+  });
+
+  this.nextEnemy = 0;
   this.input.on('pointerdown', placeTurret);
+  //this.physics.add.overlap(Enemy, Bullet, damageEnemy);
 
 }
 
-
-function update(time, delta) {
-  // Sends in enemies every two seconds
-  if (time > this.nextEnemy)
-    {
-        var enemy = enemies.get();
-        if (enemy)
-        {
-            enemy.setActive(true);
-            enemy.setVisible(true);
-            enemy.startOnPath();
-
-            this.nextEnemy = time + 2000;
-        }       
-    }
+function damageEnemy(enemy, bullet) {  
+  console.log("Hello");
+  // only if both enemy and bullet are alive
+  if (enemy.active === true && bullet.active === true) {
+    
+      // we remove the bullet right away
+      bullet.setActive(false);
+      bullet.setVisible(false);    
+      
+      // decrease the enemy hp with BULLET_DAMAGE
+      enemy.receiveDamage(BULLET_DAMAGE);
+  }
 }
+
 
 /**
  * Creates a transparent path for the garbage objects to follow.
  */
 function createPath() {
 
- 
-  
   path.lineTo(64, 128);
   path.lineTo(224, 128);
   path.lineTo(224, 320);
@@ -215,6 +303,25 @@ function drawGrid(graphics) {
   graphics.strokePath();
 }
 
+function update(time, delta) {
+  // Sends in enemies every two seconds
+  if (time > this.nextEnemy)
+    {
+        var enemy = enemies.get();
+        if (enemy)
+        {
+            enemy.setActive(true);
+            enemy.setVisible(true);
+            enemy.startOnPath();
+
+            this.nextEnemy = time + 2000;
+        }       
+    }
+   
+
+
+}
+console.log(game); 
 /**
  * Places the turrets in a 
  * @param {*} pointer Vector representation of the point
@@ -226,18 +333,28 @@ function placeTurret(pointer) {
 
   if (canPlaceTurret(i, j)) {
     var tree = TreeTurrets.get();
+    
     if (tree) {
       tree.setActive(true);
       tree.setVisible(true);
       tree.place(i, j);
+      gridMap[j][i] = 1;
     }
   }
 
 }
 
 function canPlaceTurret(i, j) {
-  console.log(gridMap[j][i] === 0);
+
   return gridMap[j][i] === 0;
 }
-    
+
+function addBullet(x, y, angle) {
+  var bullet = bullets.get();
+  if (bullet)
+  {
+      bullet.fire(x, y, angle);
+  }
+}
+
     
