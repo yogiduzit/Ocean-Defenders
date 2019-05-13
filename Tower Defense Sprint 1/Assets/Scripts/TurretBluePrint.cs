@@ -9,6 +9,4 @@ public class TurretBluePrint {
     public string name;
     public int money;
 
-   
-
 }

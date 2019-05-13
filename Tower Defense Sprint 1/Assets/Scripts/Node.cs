@@ -83,5 +83,4 @@ public class Node : MonoBehaviour {
 
         return transform.position + positionOffset;
     }
-
 }

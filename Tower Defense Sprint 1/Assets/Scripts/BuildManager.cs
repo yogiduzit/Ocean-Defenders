@@ -72,5 +72,4 @@ public class BuildManager : MonoBehaviour {
             }
         }
     }
-
 }

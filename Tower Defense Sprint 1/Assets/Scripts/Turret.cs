@@ -66,7 +66,7 @@ public class Turret : MonoBehaviour {
                     lineRenderer.enabled = false;
                 }
             }
-            return; // Do nothing if we do not have a target.
+            return; // If no target is do nothing.
         }
         LockOnTarget ();
         if (useLaser) {

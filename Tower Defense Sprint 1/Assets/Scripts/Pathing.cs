@@ -17,15 +17,11 @@ public class Pathing : MonoBehaviour
     {
         target = Waypoints.waypoints[0];
         enemy = gameObject.GetComponent<Enemy>();
-
-
     }
 
     // Update is called once per frame
     void Update()
     {
-
-
         switch (enemy.enemyType)
         {
             case "Cloud":
@@ -34,8 +30,6 @@ public class Pathing : MonoBehaviour
             case "Trash":
                 PathTrash();
                 break;
-
-
         }
 
        /* if ()
@@ -54,15 +48,6 @@ public class Pathing : MonoBehaviour
             PlayerStats.lives--;
             Destroy(gameObject);
 
-                return;
-            }
-
-            waypointIndex++;
-            target = Waypoints.waypoints[waypointIndex];
-
-        }
-        void PathCloud()
-        {
 
             t += Time.deltaTime;
 
@@ -101,5 +86,4 @@ public class Pathing : MonoBehaviour
             }
 
         }
-    
 }
