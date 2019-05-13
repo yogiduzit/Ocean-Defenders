@@ -1,8 +1,7 @@
-﻿using System.Collections;
+using System.Collections;
 using UnityEngine;
 
-public class WaveSpawner : MonoBehaviour
-{
+public class WaveSpawner : MonoBehaviour {
     // public GameObject enemy;
 
     public Transform enemyTrashPrefab;
@@ -21,64 +20,58 @@ public class WaveSpawner : MonoBehaviour
 
     //
 
-
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start () {
         //clone = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     // Update is called once per frame
-    void Update()
-    {
+    void Update () {
 
-        if (countdown <= 0f)
-        {
-            StartCoroutine(SpawnWave1());
+        if (countdown <= 0f) {
+            StartCoroutine (SpawnWave1 ());
             countdown = waveTime;
-
 
         }
         countdown -= Time.deltaTime;
     }
-    IEnumerator SpawnWave1()
-    {
+    IEnumerator SpawnWave1 () {
         waveIndex++;
-        for (int i = 0; i < waveIndex; i++)
-        {
+        // for (int i = 0; i < waveIndex; i++)
+        // {
 
+        SpawnEnemyTrash ();
+        yield return new WaitForSeconds (0.5f);
 
-            SpawnEnemyTrash();
-            yield return new WaitForSeconds(0.5f);
+        SpawnEnemyCloud ();
+        yield return new WaitForSeconds (1.0f);
 
-            SpawnEnemyCloud();
-            yield return new WaitForSeconds(1.0f);
+        // }
+    }
+
+    void SpawnEnemyTrash () {
+        if (enemyTrashPrefab != null) {
+            // Instantiates new enemies at a certain position every second.
+            Instantiate (enemyTrashPrefab, spawnPoint.position, spawnPoint.rotation);
 
         }
     }
 
-    void SpawnEnemyTrash()
-    {
-        if (enemyTrashPrefab != null)
-        {
-            // Instantiates new enemies at a certain position every second.
-            Instantiate(enemyTrashPrefab, spawnPoint.position, spawnPoint.rotation);
+    void SpawnEnemyCloud () {
+        if (enemyCloudPrefab != null) {
+            Vector3 cloudInitial = new Vector3 (spawnPoint.position.x, spawnPoint.position.y + 8, spawnPoint.position.z);
 
-        }
-    }
-
-    void SpawnEnemyCloud()
-    {
-        if (enemyCloudPrefab != null)
-        {
-            Vector3 cloudInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 8, spawnPoint.position.z);
-            
             // Instantiates new enemies at a certain position every second.
-            Instantiate(enemyCloudPrefab, cloudInitial, spawnPoint.rotation);
+            Instantiate (enemyCloudPrefab, cloudInitial, spawnPoint.rotation);
 
         }
 
     }
 }
-  
-
+/*  int NumberEnemyTrash(int waveIndex)
+    {
+        this.waveIndex = waveIndex * wave
+        return 0;
+    }
+}
+*/

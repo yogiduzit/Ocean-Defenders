@@ -11,6 +11,7 @@ public class Pathing : MonoBehaviour
     private int waypointIndex;
     Enemy enemy;
     private float t;
+    private bool OutOfBounds;
     // Start is called before the first frame update
     void Start()
     {
@@ -21,7 +22,6 @@ public class Pathing : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         switch (enemy.enemyType)
         {
             case "Cloud":
@@ -30,30 +30,28 @@ public class Pathing : MonoBehaviour
             case "Trash":
                 PathTrash();
                 break;
-
-
         }
-        void GetNextWaypoint()
+
+       /* if ()
+        {
+            PlayerStats.lives--;
+        }
+        */
+    } 
+    void GetNextWaypoint()
         {
             if (waypointIndex >= Waypoints.waypoints.Length - 1)
             {
-                /* Need to find some other way around destroy
-                 * Right now, As the first enemy gets destroyed
-                 * the rest of them cannot access its prefab. */
+            /* Need to find some other way around destroy
+             * Right now, As the first enemy gets destroyed
+             * the rest of them cannot access its prefab. */
+            PlayerStats.lives--;
+            Destroy(gameObject);
 
-                Destroy(gameObject);
-                return;
-            }
 
-            waypointIndex++;
-            target = Waypoints.waypoints[waypointIndex];
+            t += Time.deltaTime;
 
-        }
-        void PathCloud()
-        {
-            t += Time.time;
-            Debug.Log(t);
-            Vector3 dirCloud = new Vector3(target.position.x, target.position.y + 8 - 2 * Mathf.Sin(t * Mathf.PI / 180), target.position.z);
+            Vector3 dirCloud = new Vector3(target.position.x, target.position.y + 8 - (2 * Mathf.Sin(t * Mathf.PI)), target.position.z);
             Vector3 dir = dirCloud - transform.position;
 
             transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
@@ -88,5 +86,4 @@ public class Pathing : MonoBehaviour
             }
 
         }
-    }
 }

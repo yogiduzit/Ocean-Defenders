@@ -34,9 +34,11 @@ public class BuildManager : MonoBehaviour {
             Debug.Log ("Not enough money to build, you only have " + PlayerStats.Money);
             return;
         } else {
+
             PlayerStats.Money -= turretToBuild.cost;
 
-            GameObject turret = (GameObject) Instantiate (turretToBuild.prefab, node.GetBuildPosition (), Quaternion.identity);
+            Debug.Log("wtf" + node.GetBuildPosition());
+            GameObject turret = (GameObject) Instantiate (turretToBuild.prefab, node.GetBuildPosition() + positionOffset, Quaternion.identity);
             turret.name = turretToBuild.name; // Set the name of the created game object to the blueprint name
             node.turret = turret;
             Debug.Log ("you spent: " + turretToBuild.cost + " and have " + PlayerStats.Money + " left");

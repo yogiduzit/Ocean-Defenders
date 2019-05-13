@@ -72,6 +72,7 @@ public class Node : MonoBehaviour {
             Debug.Log ("Cannot build there"); // for testing purposes. 
             return;
         } else {
+
             BuildManager.instance.BuildTurretOn (this);
             Debug.Log(this);
         }
