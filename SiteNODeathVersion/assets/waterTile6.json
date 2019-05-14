@@ -1,0 +1,14 @@
+{ "columns":2,
+ "image":"..\/..\/..\/Applications\/MAMP\/htdocs\/phaser-helloWorld\/assets\/waterTile6.png",
+ "imageheight":64,
+ "imagewidth":64,
+ "margin":0,
+ "name":"waterTile6",
+ "spacing":0,
+ "tilecount":4,
+ "tiledversion":"1.2.3",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":1.2
+}
