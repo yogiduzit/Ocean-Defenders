@@ -65,5 +65,4 @@ public class CamControl : MonoBehaviour {
         }
 
     }
-
 }

@@ -13,7 +13,7 @@ public class Shop : MonoBehaviour {
     public void purchaseTree()
     {
         Debug.Log("Plant the tree.");
-        BuildManager.instance.SelectTurretToBuild(missileLauncher);
+        BuildManager.instance.SelectTurretToBuild(moneyTurret);
     }
     public void purchaseTurret1()
     {
@@ -23,15 +23,18 @@ public class Shop : MonoBehaviour {
     public void purchaseTurret2()
     {
         Debug.Log("Place the turret.");
-        BuildManager.instance.SelectTurretToBuild(slowTurret);
+        BuildManager.instance.SelectTurretToBuild(missileLauncher);
     }
     public void purchaseTurret3()
     {
         Debug.Log("Place the turret.");
+        BuildManager.instance.SelectTurretToBuild(slowTurret);
+    }
+    public void purchaseTurret4()
+    {
+        Debug.Log("Place the turret.");
         BuildManager.instance.SelectTurretToBuild(poisonTurret);
     }
-
-
 
     public void Update () {
        
