@@ -9565,8 +9565,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 80
-  enemyTag: Enemy
-  bounceRange: 10
-  damage: 10
-  impactEffect: {fileID: 100006, guid: 906ef3748a66347cfb2d72de10092732, type: 3}
-  maxBounces: 10
+

@@ -7,6 +7,9 @@ TagManager:
   - Enemy
   - Tile
   - Turret
+  - FxTemporaire
+  - ScoreInfo
+  - Health Bar
   layers:
   - Default
   - TransparentFX
@@ -16,7 +19,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - 1
   - 
   - 
   - 

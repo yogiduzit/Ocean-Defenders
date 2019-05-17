@@ -3,7 +3,14 @@ guid: d3eb8898713374f5db66e5a8de115f8f
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - enemyTrashPrefab: {fileID: 1009743245526064507, guid: c6a94bcdfe5034802ba70e03873cefdf,
+      type: 3}
+  - enemyCloudPrefab: {fileID: 303996171070758325, guid: 0f5b52f0f8eb34c4f984acb025d3d150,
+      type: 3}
+  - enemyDumpPrefab: {fileID: 2971146639072475380, guid: 5d9080e61ce906e4cb6a8dc3f2f572da,
+      type: 3}
+  - spawnPoint: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
