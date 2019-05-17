@@ -2,9 +2,10 @@ using UnityEngine;
 
 public class BuildManager : MonoBehaviour {
     public Camera myCamera;
-    public Vector3 positionOffset;
     public static BuildManager instance;
     private TurretBluePrint turretToBuild;
+    private Node selectedNode;
+    public NodeUI nodeUI;
 
     //B
     private GameObject toBuild;
@@ -14,7 +15,6 @@ public class BuildManager : MonoBehaviour {
     private void Start () { }
     private void Awake () {
         if (instance != null) {
-
             Debug.Log ("Build Manager has already been instantiated. ERROR: There should only be one Build Manager within the game.");
         } else {
 
@@ -23,29 +23,7 @@ public class BuildManager : MonoBehaviour {
     }
 
     public void SelectTurretToBuild (TurretBluePrint turret) {
-
-        Debug.Log (turret.cost);
-        Debug.Log (turret.prefab);
         turretToBuild = turret;
-    }
-
-    public void BuildTurretOn (Node node) {
-        if (PlayerStats.Money < turretToBuild.cost) {
-            Debug.Log ("Not enough money to build, you only have " + PlayerStats.Money);
-            return;
-        } else {
-
-            PlayerStats.Money -= turretToBuild.cost;
-
-            Debug.Log("wtf" + node.GetBuildPosition());
-            GameObject turret = (GameObject) Instantiate (turretToBuild.prefab, node.GetBuildPosition() + positionOffset, Quaternion.identity);
-            turret.name = turretToBuild.name; // Set the name of the created game object to the blueprint name
-            node.turret = turret;
-            Debug.Log ("you spent: " + turretToBuild.cost + " and have " + PlayerStats.Money + " left");
-            turretToBuild = null; // Once you have purchased a turret you have to press the correct button to rebuild. 
-            //StartCoroutine (myCamera.GetComponent<CamControl>().Shake (0.10f, 0.35f));
-        }
-
     }
     void AddMoney () {
         if (turretToBuild.money != 0) {
@@ -72,4 +50,30 @@ public class BuildManager : MonoBehaviour {
             }
         }
     }
+
+    public void SelectNode (Node node) {
+        if(selectedNode == node){
+
+            DeselectNode(); // if the user clicks the current node again close the UI.
+            return;
+        }
+        else{
+            //else display the UI
+            selectedNode = node; 
+            turretToBuild = null;
+            nodeUI.SetTarget(node);
+        }
+    }
+
+    public void DeselectNode(){
+        selectedNode = null;
+        nodeUI.Hide();
+    }
+
+    public TurretBluePrint GetTurretBluePrint(){
+
+        return turretToBuild;
+    }
+   
+
 }

@@ -34,7 +34,7 @@ public class Bullet : MonoBehaviour {
         Destroy(effect, 1.0f);
         Destroy (this.gameObject);
 
-
+        
         Damage(target);
 
     }
@@ -42,9 +42,9 @@ public class Bullet : MonoBehaviour {
     void Damage (Transform enemy){
 
         Enemy e = enemy.GetComponent<Enemy>();
-
-        if(e != null){
-
+        
+        if (e != null){
+            
             e.takeDamage(damage);
         }
     }

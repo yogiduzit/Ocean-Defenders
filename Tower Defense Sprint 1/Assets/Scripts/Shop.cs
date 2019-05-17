@@ -8,8 +8,6 @@ public class Shop : MonoBehaviour {
     public TurretBluePrint poisonTurret;
     public TurretBluePrint moneyTurret;
 
-
-
     public void purchaseTree()
     {
         Debug.Log("Plant the tree.");

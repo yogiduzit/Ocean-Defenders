@@ -10,6 +10,7 @@ public class Turret : MonoBehaviour {
 
     [Header ("Unity Fields")]
     public string enemyTag = "Enemy";
+    public string enemyType;
     public float waitTime = 0.0f;
     public float seekRate = 0.5f;
     public float turnSpeed = 10.0f;
@@ -66,7 +67,7 @@ public class Turret : MonoBehaviour {
                     lineRenderer.enabled = false;
                 }
             }
-            return; // If no target is do nothing.
+            return; // Do nothing if we do not have a target.
         }
         LockOnTarget ();
         if (useLaser) {
@@ -118,4 +119,10 @@ public class Turret : MonoBehaviour {
 		Vector3 rotation = Quaternion.Lerp(partToRotate.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
 		partToRotate.rotation = Quaternion.Euler(0.0f, rotation.y, 0.0f);
     }
+
+
+    public void SellTurret(){
+        Destroy(this.gameObject);
+    }
+    
 }
