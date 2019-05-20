@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -18,69 +19,86 @@ public class WaveSpawner : MonoBehaviour
     public float waveTime = 10f;
 
     // Time for first wave
-    private float countdown = 7f;
+    public float countdown = 1f;
 
     //Number of enemies
-    private int yearIndex = 2023;
+    private int yearIndex = 2018;
 
-    private int waveNumber = 10;
+    private int waveNumber = 1;
     public GameObject camRotate;
 
+    private bool waveIsComplete;
+    public Button nextWave;
+    public Text waveText;
+    public Text nextWaveText;
 
+    private GameObject[] enemies;
+    
 
-
-    //
 
     // Start is called before the first frame update
     void Start()
     {
-        StartCoroutine(SpawnWaves());
-        //clone = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
+        waveIsComplete = true;
 
+        nextWave.onClick.AddListener(Wrapper);
+        //clone = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(IsWaveComplete());
+
+        if (waveIsComplete && waveNumber != 1)
+        {
+
+            waveText.text = "Wave is complete";
+        }
+        else
+        {
+            waveText.text = "";
+        }
+        ButtonApperance();
 
     }
     IEnumerator SpawnWaves()
     {
-        yield return new WaitForSeconds(1f);
-        switch (yearIndex)
+        yield return null;
+        switch (waveNumber)
         {
-            case 2019:
+            case 1:
                 StartCoroutine(SpawnWave1());
                 break;
-            case 2020:
+            case 2:
                 StartCoroutine(SpawnWave2());
                 break;
-            case 2021:
+            case 3:
                 StartCoroutine(SpawnWave3());
                 break;
-            case 2022:
+            case 4:
                 StartCoroutine(SpawnWave4());
                 break;
-            case 2023:
+            case 5:
                 StartCoroutine(SpawnWave5());
                 break;
-            case 2024:
+            case 6:
                 StartCoroutine(SpawnWave6());
                 break;
-            case 2025:
+            case 7:
                 StartCoroutine(SpawnWave7());
                 break;
-            case 2026:
+            case 8:
                 StartCoroutine(SpawnWave8());
                 break;
-            case 2027:
+            case 9:
                 StartCoroutine(SpawnWave9());
                 break;
-            case 2028:
+            case 10:
                 StartCoroutine(SpawnWave10());
                 break;
-            case 2040:
-                SpawnBoss();
+            case 11:
+                BossWave();
                 break;
 
         }
@@ -91,118 +109,113 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave1()
     {
 
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
 
+        Debug.Log("Wave1");
         // Spawns enemies
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 6; i++)
         {
+            yield return new WaitForSeconds(1f);
             SpawnEnemyTrash();
-            yield return new WaitForSeconds(2f);
+
         }
 
 
-        yield return new WaitForSeconds(countdown);
-        StartCoroutine(SpawnWaves());
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+       /* Debug.Log(enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds);
+        if (enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds)
+        {
+            waveIsComplete = true;
+        }*/
+
+
     }
     IEnumerator SpawnWave2()
     {
 
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave2");
         // Spawns enemies
-        for (int i = 0; i < 6; i++)
+        for (int i = 0; i < 9; i++)
         {
             SpawnEnemyTrash();
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
         }
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
 
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
+
     }
     IEnumerator SpawnWave3()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave3");
         // Spawns enemies
         for (int i = 0; i < 7; i++)
         {
             SpawnEnemyTrash();
-            if (i > 2 && i < 5)
+            if (i < 3)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
                 SpawnEnemyTrashCan();
-
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
             }
-            //Time between waves
-            yield return new WaitForSeconds(countdown);
-
-            //Calls the main function again
-            StartCoroutine(SpawnWaves());
+            yield return new WaitForSeconds(2f);
         }
+
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
     }
     IEnumerator SpawnWave4()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave4");
         // Spawns enemies
         for (int i = 0; i < 10; i++)
         {
-            if (i != 8 && i != 3)
+            if (i != 3)
             {
+                yield return new WaitForSeconds(0.5f);
                 SpawnEnemyTrash();
             }
 
-            if (i > 2 && i < 5)
+            if (i > 2 && i < 6)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
                 SpawnEnemyTrashCan();
 
 
             }
-            if (i % 2 < Mathf.Epsilon)
+            if (i % 2 < Mathf.Epsilon && i != 6 && i != 8)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
                 SpawnEnemyCloud();
             }
-            yield return new WaitForSeconds(2f);
-            /*if (true)
-            {
-                SpawnEnemyDump();
-            }
-            */
+            yield return new WaitForSeconds(1f);
         }
-        /*  for (int i = 0; i < 4; i++)
-          {
-              SpawnEnemyTrashCan();
-              yield return new WaitForSeconds(3f);
-          }
-          */
+
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
-
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave5()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave5");
         // Spawns enemies
 
         for (int i = 0; i < 15; i++)
@@ -214,57 +227,49 @@ public class WaveSpawner : MonoBehaviour
 
             if (i > 1 && i < 7)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
                 SpawnEnemyTrashCan();
 
 
             }
-            if (i % 3 < Mathf.Epsilon || i % 4 < Mathf.Epsilon)
+            if (i % 3 < Mathf.Epsilon && i != 9)
             {
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.7f);
                 SpawnEnemyCloud();
             }
-            yield return new WaitForSeconds(2f);
-            /*if (true)
-            {
-                SpawnEnemyDump();
+            yield return new WaitForSeconds(1.5f);
             }
-            */
-        }
 
 
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
+
     }
     IEnumerator SpawnWave6()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave6");
         // Spawns enemies
         for (int i = 0; i < 20; i++)
         {
-            if (i != 0 && i != 1)
+            if (i > 4)
             {
                 SpawnEnemyTrash();
             }
-            if (i >= 0 && i <= 5)
+            if (i >= 0 && i <= 6)
             {
-
+                SpawnEnemyTrash();
                 SpawnEnemyTrashCan();
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
 
             }
-            if (i > 8)
+            if (i > 10 && 1 != 17)
             {
-
                 SpawnEnemyCloud();
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.7f);
 
 
             }
@@ -275,42 +280,38 @@ public class WaveSpawner : MonoBehaviour
 
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
         }
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
+
+
     }
     IEnumerator SpawnWave7()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave7");
         // Spawns enemies
-        /* for (int i = 0; i < 10; i++)
-         {
-             SpawnEnemyTrash();
-             yield return new WaitForSeconds(2f);
-         }
-         */
+
         for (int i = 0; i < 22; i++)
         {
             if (i % 2 < Mathf.Epsilon)
             {
                 SpawnEnemyTrash();
+                yield return new WaitForSeconds(0.5f);
+                SpawnEnemyTrash();
             }
-            if (i < 18)
+            if (i < 13)
             {
 
                 SpawnEnemyTrashCan();
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1f);
 
             }
-            if (i > 13 && i % 2 < Mathf.Epsilon)
+            if (i > 15 && i % 2 < Mathf.Epsilon && 1 != 16)
             {
 
                 SpawnEnemyCloud();
@@ -322,27 +323,25 @@ public class WaveSpawner : MonoBehaviour
             if (i == 1 || i == 10)
             {
                 SpawnEnemyDump();
-
-
+                SpawnEnemyTrash();
+                SpawnEnemyTrash();
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
         }
 
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
+
     }
     IEnumerator SpawnWave8()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave8");
         // Spawns enemies
         for (int i = 0; i < 29; i++)
         {
@@ -354,14 +353,14 @@ public class WaveSpawner : MonoBehaviour
                     yield return new WaitForSeconds(0.5f);
                 }
             }
-            if (i < 18 || i > 24)
+            if (i < 17 || i > 25)
             {
 
                 SpawnEnemyTrashCan();
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(0.5f);
 
             }
-            if (i % 3 < Mathf.Epsilon)
+            if (i % 3 < Mathf.Epsilon && i != 9 && i != 15)
             {
 
                 SpawnEnemyCloud();
@@ -373,26 +372,23 @@ public class WaveSpawner : MonoBehaviour
             if (i == 0 || i == 4 || i == 14)
             {
                 SpawnEnemyDump();
-
-
+                SpawnEnemyTrash();
+                SpawnEnemyTrash();
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
         }
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
 
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave9()
     {
-
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
-
+        Debug.Log("Wave9");
         // Spawns enemies
         for (int i = 0; i < 37; i++)
         {
@@ -404,15 +400,15 @@ public class WaveSpawner : MonoBehaviour
             {
 
                 SpawnEnemyTrashCan();
-                yield return new WaitForSeconds(2f);
+                yield return new WaitForSeconds(1.5f);
 
             }
-            if (i > 30)
+            if (i > 31)
             {
                 for (int a = 0; a < i - 30; a++)
                 {
                     SpawnEnemyTrashCan();
-                    yield return new WaitForSeconds(0.5f);
+                    yield return new WaitForSeconds(1f);
                 }
 
             }
@@ -428,22 +424,22 @@ public class WaveSpawner : MonoBehaviour
             if (i % 5 < Mathf.Epsilon && i != 20)
             {
                 SpawnEnemyDump();
-
-
+                SpawnEnemyTrash();
+                SpawnEnemyTrash();
             }
 
-            yield return new WaitForSeconds(2f);
+            yield return new WaitForSeconds(1f);
 
         }
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
-        StartCoroutine(SpawnWaves());
+
     }
+
     IEnumerator SpawnWave10()
     {
+        waveIsComplete = false;
 
         // Sets the incremented year value to the UI
         // Sub-Wave 1
@@ -453,14 +449,6 @@ public class WaveSpawner : MonoBehaviour
             InvokeRepeating("IncrementAndSet", 0, 10f);
         }
 
-
-
-        // Spawns enemies
-        // InvokeRepeating("SpawnEnemyTrash", 1f, 2f);
-        /* InvokeRepeating("SpawnEnemyDump", 5f, 8f);
-         InvokeRepeating("SpawnEnemyCloud", 3f, 5f);
-         InvokeRepeating("SpawnEnemyTrashCan", 3f, 5f);
-         */
         for (int i = 0; yearIndex <= 2040; i++)
         {
 
@@ -482,7 +470,7 @@ public class WaveSpawner : MonoBehaviour
             Debug.Log(trashCanNum);
             if (trashCanNum + i > 60)
             {
-                
+
                 for (int j = 0; j < 2 * i + 1; j++)
                 {
 
@@ -508,106 +496,137 @@ public class WaveSpawner : MonoBehaviour
                     Debug.Log("trash");
                     yield return new WaitForSeconds(0.5f);
                 }
-               
+
             }
 
 
 
 
 
-           if (yearIndex == 2040)
+            if (yearIndex == 2040)
             {
-                StartCoroutine(SpawnWaves());
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
             }
-            yield return new WaitForSeconds(2f);
+           
         }
 
     }
-   /* IEnumerator BossWave()
+    void BossWave()
     {
-
-    }*/
-    /*void SpawnWave()
-    {
-        SpawnEnemyTrash();
-        SpawnEnemyTrash();
-        SpawnEnemyTrash();
-        SpawnEnemyTrash();
-    }*/
-
-
-
-    void SpawnEnemyTrash()
+        if (bossPrefab != null)
         {
-            if (enemyTrashPrefab != null)
-            {
-                Vector3 trashInitial = new Vector3(spawnPoint.position.x - 1, spawnPoint.position.y - 1, spawnPoint.position.z);
-                // Instantiates new enemies at a certain position every second.
-                Instantiate(enemyTrashPrefab, trashInitial, camRotate.transform.rotation);
-
-
-            }
+            Quaternion boss = new Quaternion(spawnPoint.rotation.x, spawnPoint.rotation.y + 180, spawnPoint.rotation.z, spawnPoint.rotation.w);
+            Instantiate(bossPrefab, spawnPoint.position, spawnPoint.rotation);
         }
-
-        void SpawnEnemyDump()
-        {
-            if (enemyDumpPrefab != null)
-            {
-                Vector3 trashInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y - 1, spawnPoint.position.z);
-                // Instantiates new enemies at a certain position every second.
-                Instantiate(enemyDumpPrefab, trashInitial, camRotate.transform.rotation);
-
-            }
-        }
-
-        void SpawnEnemyCloud()
-        {
-            if (enemyCloudPrefab != null)
-            {
-                Vector3 cloudInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 8, spawnPoint.position.z);
-
-                // Instantiates new enemies at a certain position every second.
-                Instantiate(enemyCloudPrefab, cloudInitial, camRotate.transform.rotation);
-
-            }
-
-        }
-        void SpawnEnemyTrashCan()
-        {
-            if (enemyTrashCanPrefab != null)
-            {
-                Vector3 cloudInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y - 1, spawnPoint.position.z);
-
-                // Instantiates new enemies at a certain position every second.
-                Instantiate(enemyTrashCanPrefab, cloudInitial, camRotate.transform.rotation);
-
-            }
-
-        }
-        void IncrementAndSet()
+    }
+    void IncrementAndSet()
         {
             waveNumber++;
             yearIndex++;
             PlayerStats.Waves = yearIndex;
         }
-        
 
-    void SpawnBoss()
+    void SpawnEnemyTrash()
     {
-            if (bossPrefab != null)
+        if (enemyTrashPrefab != null)
         {
-            Vector3 boss = new Vector3(spawnPoint.position.x, spawnPoint.position.y - 2, spawnPoint.position.z);
-            Instantiate(bossPrefab, boss, spawnPoint.rotation);
+            Vector3 trashInitial = new Vector3(spawnPoint.position.x - 1, spawnPoint.position.y - 1, spawnPoint.position.z);
+            // Instantiates new enemies at a certain position every second.
+            Instantiate(enemyTrashPrefab, trashInitial, camRotate.transform.rotation);
+
+
         }
     }
 
-
-}
-
-/*  int NumberEnemyTrash(int waveIndex)
+    void SpawnEnemyDump()
     {
-        this.waveIndex = waveIndex * wave
-        return 0;
+        if (enemyDumpPrefab != null)
+        {
+            Vector3 trashInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y - 1, spawnPoint.position.z);
+            // Instantiates new enemies at a certain position every second.
+            Instantiate(enemyDumpPrefab, trashInitial, camRotate.transform.rotation);
+
+        }
     }
+
+    void SpawnEnemyCloud()
+    {
+        if (enemyCloudPrefab != null)
+        {
+            Vector3 cloudInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y + 8, spawnPoint.position.z);
+
+            // Instantiates new enemies at a certain position every second.
+            Instantiate(enemyCloudPrefab, cloudInitial, camRotate.transform.rotation);
+
+        }
+
+    }
+    void SpawnEnemyTrashCan()
+    {
+        if (enemyTrashCanPrefab != null)
+        {
+            Vector3 cloudInitial = new Vector3(spawnPoint.position.x, spawnPoint.position.y - 1, spawnPoint.position.z);
+
+            // Instantiates new enemies at a certain position every second.
+            Instantiate(enemyTrashCanPrefab, cloudInitial, camRotate.transform.rotation);
+
+        }
+
+    }
+    void Wrapper()
+    {
+        if (waveIsComplete)
+        {
+            StartCoroutine(SpawnWaves());
+        }
+    }
+    IEnumerator IsWaveComplete()
+    {
+        if (enemies != null && enemies[enemies.Length - 1] != null)
+        {
+
+            if (enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds)
+            {
+
+                yield return new WaitForSeconds(1.0f);
+                //Debug.Log(enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds);
+                waveIsComplete = true;
+            }
+        }
+
+    }
+    void ButtonApperance()
+    {
+        if (!waveIsComplete)
+        {
+            nextWaveText.text = "Wave \nrunning";
+            nextWave.interactable = false;
+            nextWave.GetComponent<Image>().color = Color.gray;
+            
+
+        }
+        else if (waveIsComplete && waveNumber == 1)
+        {
+            nextWaveText.text = "Start Wave";
+            nextWave.interactable = true;
+            nextWave.GetComponent<Image>().color = Color.white;
+        }
+        else 
+        {
+            nextWaveText.text = "Start Next \nWave";
+            nextWave.interactable = true;
+            nextWave.GetComponent<Image>().color = Color.white;
+        } 
+
+    }
+    void SetTransparency()
+    {
+        //var col = nextWave.GetComponent<Renderer>().material.color;
+        //col.a = 0.5f;
+    }
+
+
+
 }
-*/
+
