@@ -8,7 +8,7 @@
     <meta name="author" content="">
     <link rel="icon" href="../../../../favicon.ico">
     <title>EcoDefender</title>
-    
+
     <!--Template based on URL below-->
     <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/starter-template/">
 
@@ -310,58 +310,58 @@
             }
         }
     </style>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    
+
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <script src="TemplateData/UnityProgress.js"></script>
     <script src="Build/UnityLoader.js"></script>
     <script>
-      var unityInstance = UnityLoader.instantiate("unityContainer", "Build/OceanDefenders.json", {onProgress: UnityProgress});
+        var unityInstance = UnityLoader.instantiate("unityContainer", "Build/OceanDefenders.json", {onProgress: UnityProgress});
     </script>
 
-    
+
 </head>
 
 <body>
-    
-<!-- Navbar -->
 
-<!-- sticky navbar requires some fun mental gymnastics to calculate div heights, will try later -->
-<!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow-sm"> -->
-<nav class="navbar navbar-expand-md navbar-dark shadow sticky-top" style="font-family: 'Carter One', cursive; background-color: #987654;">
-    <!-- <a class="navbar-brand" href="#">EcoDefender</a> -->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+    <!-- Navbar -->
 
-    <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="background-color: #987654;">
-        <ul class="navbar-nav mx-auto">
-            <li id="home" class="nav-item px-3">
-                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#head">Home<span class="sr-only"></span></a>
-            </li>
-            <li class="nav-item px-3">
-                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#about1">About<span class="sr-only"></span></a>
-            </li>
-            <li id="brand" class="nav-time px-3">
-                <a class="navbar-brand mx-auto" href="/easter.html" style="font-size: 22pt;" >OceanDefenders</a>
-            </li>
-            <li class="nav-item px-3">
-                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#information">Facts</a>
-            </li>
-            <li class="nav-item px-3">
-                <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#play">Play</a>
-            </li>
-        </ul>
-        
-        <!-- data-toggle="collapse" data-target=".navbar-collapse.show" -->
-        
-    </div>
-</nav>
+    <!-- sticky navbar requires some fun mental gymnastics to calculate div heights, will try later -->
+    <!-- <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top shadow-sm"> -->
+    <nav class="navbar navbar-expand-md navbar-dark shadow sticky-top" style="font-family: 'Carter One', cursive; background-color: #987654;">
+        <!-- <a class="navbar-brand" href="#">EcoDefender</a> -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-<!-- Begin Content -->
-    
+        <div class="collapse navbar-collapse" id="navbarsExampleDefault" style="background-color: #987654;">
+            <ul class="navbar-nav mx-auto">
+                <li id="home" class="nav-item px-3">
+                    <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#head">Home<span class="sr-only"></span></a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#about1">About<span class="sr-only"></span></a>
+                </li>
+                <li id="brand" class="nav-time px-3">
+                    <a class="navbar-brand mx-auto" href="/easter.html" style="font-size: 22pt;">OceanDefenders</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#information">Facts</a>
+                </li>
+                <li class="nav-item px-3">
+                    <a class="nav-link" data-toggle="collapse" data-target=".navbar-collapse.show" href="#play">Play</a>
+                </li>
+            </ul>
+
+            <!-- data-toggle="collapse" data-target=".navbar-collapse.show" -->
+
+        </div>
+    </nav>
+
+    <!-- Begin Content -->
+
     <main role="main" id="main" class="container-fluid p-0 m-0">
         <!--
         <header id="head" class="text-center d-table-cell align-middle mt-5 pt-5">
@@ -372,22 +372,41 @@
         </header>
         -->
         <header id="head" class="d-table p-0 m-0" tabindex="-1">
-             
-        <h1 id="head2" class="d-table-cell text-center align-middle m-0 p-0">OceanDefenders!</h1>
+
+            <h1 id="head2" class="d-table-cell text-center align-middle m-0 p-0">OceanDefenders!</h1>
         </header>
 
         <!-- ABOUT -->
-        
+
         <div id="about1" class="d-table p-0 m-0" tabindex="-1">
-        <div id="about" class="text-center d-table-cell align-middle mt-0 pt-3 ml-3 mr-3">
-            <h1>About</h1>
-            <p>
-                Since the health of our ocean is critical to our future, <br>
-                We decided to focus on educating younger children in a medium we knew they would both consume and enjoy. <br>
-                Making an ocean defense game was both an interesting and rewarding challenge with the knowledge <br>
-                That it's actually an important topic that our group cared deeply about.
-            </p>
-            <!--
+            <div id="about" class="text-center d-table-cell align-middle mt-0 pt-3 ml-3 mr-3">
+                <h1>About</h1>
+                <p>
+                    <b>"Never doubt that a small group of thoughtful, committed citizens can change the world; indeed, it's the only thing that ever has."
+
+                        - Margaret Mead </b>
+
+
+                    <br>
+                    <b>At Ocean-Defenders we’re about community. </b>
+
+                    Community can mean many things, but at Ocean-Defenders, we define it as finding your tribe of support wherever you go. Our founders are originally from four different countries: China, India, Pakistan, and the United States. In each of their home countries, overconsumption is a problem, and having moved to a brand new country, they know well the value of finding a tribe of one’s own, too. The founders all agree that waste produced from overconsumption needs to be reduced as this waste ends up in the oceans.
+
+
+
+                    <br>
+
+                    <b> Our vision: </b>
+
+                    Ocean-Defenders users will be able to learn more about waste disposal in the world as they pass the time.
+                    The purpose of the game is to give kids the opportunity to help stop the pollution flowing through the city's sewer systems and into the ocean. With this opportunity, kids will be able to make more ecofriendly decisions about their current waste disposal practices and learn more about our oceans.
+
+
+                    <br>
+                    <b> Our Mission: </b>
+                    Ocean-Defender's mission is to educate the world about the impacts of improper waste disposal practices.
+                </p>
+                <!--
             <p class="lead">
                 An EcoCity is: 
                 <br> 
@@ -408,124 +427,119 @@
                 If you have one of the top five scores, you get to be part of the leaderboard!
             </p>
     -->
-            
-            <div class="card-deck" style="width: 100%; padding-left: 5vw; padding-right: 5vw;">
-  <div class="card">
-    <img class="card-img-top" src="arka.jpg" alt="Card image cap">
-      <div class="card-header">
-            Arka Roy
+
+                <div class="card-deck" style="width: 100%; padding-left: 5vw; padding-right: 5vw;">
+                    <div class="card">
+                        <img class="card-img-top" src="arka.jpg" alt="Card image cap">
+                        <div class="card-header">
+                            Arka Roy
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> "When I found out how much waste was being thrown into the ocean, I knew something needed to change. A large part of the problem comes from lack of information, so I hope our game can shed some light on the dangers of waste," says Arka. Outside of saving the planet, Arka enjoys robotics and saving up for his ecofriendly Tesla. </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="josh.jpeg" alt="Card image cap">
+                        <div class="card-header">
+                            Josh Jhinger
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> "We need to find a way to change our current habits and restructure our existing infrasture so real change can happen. We can't do that if people aren't aware of the environmental imapcts of our current system," says Josh. "How kids view climate change is critical in shaping future conversations about waste."</p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="herbert.jpg" alt="Card image cap">
+                        <div class="card-header">
+                            Herbert Ma
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> "We started Ocean-defenders so people of all ages could learn more about the impacts of improper waste removal. When I found out that approximately 14 billion pounds of garbage was being dumped into the ocean every year, I knew we had to find a way to educate people about this." </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="brian.jpg" alt="Card image cap">
+                        <div class="card-header">
+                            Brian White
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> "Growing up in Vancouver, I never really saw the effects of improper waste disposal, but after my trip to India I realized where all the waste ends up. If we don't change our existing habits, the oceans may become too polluted for us to fix. That's why we created Ocean-Defenders, so people can learn the effects of waste pollution." </p>
+                        </div>
+                    </div>
+                    <div class="card">
+                        <img class="card-img-top" src="yogi.jpg" alt="Card image cap">
+                        <div class="card-header">
+                            Yogesh Verma
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text"> "Growing up in India, I saw so much waste around me and did nothing to stop the problem. I regret this choice to this day, as I see my country become more and more polluted with every passing year. After I came to Canada, I vowed to help others learn more about this problem. With Ocean-Defenders we can impact the next generation, so they do not make the same mistakes ours has."</p>
+                        </div>
+                    </div>
+                </div>
+
             </div>
-    <div class="card-body">
-      <p class="card-text">Arka is a CST Student at BCIT.  He enjoys Marvel and robotics.</p>
-      <p class="card-text"><small class="text-muted">Term 1 - Set D</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="josh.jpeg" alt="Card image cap">
-      <div class="card-header">
-            Josh Jhinger
+
+            <div id="about2" class="card text-center d-table-cell align-middle mx-auto my-auto">
+                <div class="card-header">
+                    About
+                </div>
+                <div class="card-body">
+                    <p class="card-text">
+                        Since the health of our ocean is critical to our future, we decided to focus on educating younger children in a medium we knew they would both consume and enjoy. Making an ocean defense game was both an interesting and rewarding challenge with the knowledge that it's actually an important topic that our group cared deeply about.
+                    </p>
+                </div>
             </div>
-    <div class="card-body">
-      <p class="card-text">Josh is a CST Student at BCIT.  He enjoys playing with his dog.</p>
-      <p class="card-text"><small class="text-muted">Term 1 - Set A</small></p>
-    </div>
-  </div>
-  <div class="card">
-    <img class="card-img-top" src="herbert.jpg" alt="Card image cap">
-      <div class="card-header">
-            Herbert Ma
-            </div>
-    <div class="card-body">
-      <p class="card-text">Herbert is a CST Student at BCIT.  He likes Unity and dislikes Phaser.</p>
-      <p class="card-text"><small class="text-muted">Term 1 - Set D</small></p>
-    </div>
-  </div>
-    <div class="card">
-    <img class="card-img-top" src="brian.jpg" alt="Card image cap">
-        <div class="card-header">
-            Brian White
-            </div>
-    <div class="card-body">
-      <p class="card-text">Brian is a CST Student at BCIT.  He likes games and animals.</p>
-      <p class="card-text"><small class="text-muted">Term 1 - Set D</small></p>
-    </div>
-  </div>
-    <div class="card">
-    <img class="card-img-top" src="yogi.jpg" alt="Card image cap">
-        <div class="card-header">
-            Yogi Verma
-            </div>
-    <div class="card-body">
-      <p class="card-text">Yogi is a CST Student at BCIT.  He's from India and likes memes.</p>
-      <p class="card-text"><small class="text-muted">Term 1 - Set D</small></p>
-    </div>
-  </div>
-</div>
 
         </div>
-            
-        <div id="about2" class="card text-center d-table-cell align-middle mx-auto my-auto">
-            <div class="card-header">
-            About
-            </div>
-            <div class="card-body">
-                <p class="card-text">
-                    Since the health of our ocean is critical to our future, we decided to focus on educating younger children in a medium we knew they would both consume and enjoy.  Making an ocean defense game was both an interesting and rewarding challenge with the knowledge that it's actually an important topic that our group cared deeply about. 
-                </p>
-            </div>
-        </div>
-            
-        </div>
-        
+
         <!-- FACTS -->
         <!-- Source: https://www.veluda.com/en/blog/15-endiaferon-dedomena-gia-ti-molunsi-tou-nerou-220 -->
-        
+
         <div id="info1" class="d-table p-0 m-0">
-        <div id="information" class="d-table-cell align-middle justify-content-center mt-0 pt-0" tabindex="-1">
-            <dl id="factslist" class="text-left pl-3 pr-3">
-                <h1 class="text-center">Facts</h1>
-                <!-- <dt>Facts:</dt> -->
-                <dd>
-                - Around 70% of industrial waste is dumped to water.
-                </dd> 
-                <dd>
-                - 80% of the water pollution is caused due to domestic sewage.
-                </dd>
-                <dd>
-                - More than 6 billion pounds of garbage end up in the oceans every year.
-                </dd>
-                <dd>
-                - In America 40% of rivers and 46% of the lakes are polluted and unsuitable for swimming, fishing or any other activity.
-                </dd>
-                <dd>
-                - Almost two million tons of human waste are exposed daily to water.
-                </dd>
-                <dd>
-                - The nuclear crisis created by the tsunami of 2011, unleashed 11 million liters of radioactive water into the Pacific Ocean.
-                </dd>
-                <dd>
-                - On average 250 million people succumb each year from diseases caused by the contaminated water while according to the World Health Organization and UNICEF almost 2.5 billion people lack access to valuable health conditions.
-                </dd>
-                <dd>
-                - 15 million children under the age of five years die every year from diseases caused by drinking contaminated water.
-                </dd>
-            </dl>
+            <div id="information" class="d-table-cell align-middle justify-content-center mt-0 pt-0" tabindex="-1">
+                <dl id="factslist" class="text-left pl-3 pr-3">
+                    <h1 class="text-center">Facts</h1>
+                    <!-- <dt>Facts:</dt> -->
+                    <dd>
+                        - Around 70% of industrial waste is dumped to water.
+                    </dd>
+                    <dd>
+                        - 80% of the water pollution is caused due to domestic sewage.
+                    </dd>
+                    <dd>
+                        - More than 6 billion pounds of garbage end up in the oceans every year.
+                    </dd>
+                    <dd>
+                        - In America 40% of rivers and 46% of the lakes are polluted and unsuitable for swimming, fishing or any other activity.
+                    </dd>
+                    <dd>
+                        - Almost two million tons of human waste are exposed daily to water.
+                    </dd>
+                    <dd>
+                        - The nuclear crisis created by the tsunami of 2011, unleashed 11 million liters of radioactive water into the Pacific Ocean.
+                    </dd>
+                    <dd>
+                        - On average 250 million people succumb each year from diseases caused by the contaminated water while according to the World Health Organization and UNICEF almost 2.5 billion people lack access to valuable health conditions.
+                    </dd>
+                    <dd>
+                        - 15 million children under the age of five years die every year from diseases caused by drinking contaminated water.
+                    </dd>
+                </dl>
+            </div>
         </div>
-        </div>
-        
-        
+
+
         <!-- PLAY -->
-        
+
         <div id="play1" class="d-table p-0 m-0">
-        <div id="play" class="d-table-cell align-middle justify-content-center mt-0 pt-0" style="text-align: center" tabindex="-1">
-            <!--
+            <div id="play" class="d-table-cell align-middle justify-content-center mt-0 pt-0" style="text-align: center" tabindex="-1">
+                <!--
             <h1>Play EcoDefenders</h1>
             <div class="webgl-content pt-5"> <----- THIS PUTS THE GAME ON TOP OF ALL THE CONTENT.  Unity Default CSS makes questionable decisions.
 -->
                 <h1>OceanDefenders</h1>
-                <div id="unityContainer" class = "border border-3" style="width: 100vmin; height: 62.5vmin; display: inline-block;" ></div>
+                <div id="unityContainer" class="border border-3" style="width: 100vmin; height: 62.5vmin; display: inline-block;"></div>
                 <div id="download1">
-                    <a href="OceanDefender.apk" download><img src ="dl.png" alt="dl button" style="width: 80vw;"></a>
+                    <a href="OceanDefender.apk" download><img src="dl.png" alt="dl button" style="width: 80vw;"></a>
                 </div>
                 <!--
                 <div class="footer">
@@ -536,10 +550,10 @@
 
             </div>
 -->
-            
+
+            </div>
         </div>
-        </div>
-        
+
         <!--
         <div id="download">
             <a href="OceanDefender.apk" download><img src ="dl.png" alt="dl button" style="width: 80vw;"></a>
@@ -548,15 +562,15 @@
         <footer class="page-footer font-small blue" style="color: white; background-color: #987654; border-top:3px solid #3f2a14 !important;
             border-radius: 1px !important;">
 
-                <!-- Copyright -->
-                <div class="footer-copyright text-center py-3">© 2019 OceanDefenders
-                </div>
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">© 2019 OceanDefenders
+            </div>
 
         </footer>
-        
+
     </main><!-- /.container -->
-    
-    
+
+
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -564,15 +578,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="/__/firebase/6.0.1/firebase-app.js"></script>
+    <script src="/__/firebase/6.0.1/firebase-app.js"></script>
 
-<!-- TODO: Add SDKs for Firebase products that you want to use
+    <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#reserved-urls -->
 
-<!-- Initialize Firebase -->
-<script src="/__/firebase/init.js"></script>
-    
-    
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <!--
     <script type="text/javascript">
@@ -586,8 +600,8 @@
     </script>
 -->
     <!-- SMOOTH SCROLLING USING JQUERY WORKS ON MOBILE? TEST -->
-    
-    
+
+
     <!-- TAKEN FROM https://css-tricks.com/snippets/jquery/smooth-scrolling/ -->
     <!--
     <script>
@@ -607,73 +621,73 @@
 });
     </script>
     -->
-    
+
     <script>
         var headerHeight = $("div#header").height();
-    // Select all links with hashes
-$('a[href*="#"]')
-  // Remove links that don't actually link to anything
-  .not('[href="#"]')
-  .not('[href="#0"]')
-  .click(function(event) {
-    // On-page links
-    if (
-      location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') 
-      && 
-      location.hostname == this.hostname
-    ) {
-      // Figure out element to scroll to
-      var target = $(this.hash);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
-      // Does a scroll target exist?
-      if (target.length)  {
-        // Only prevent default if animation is actually gonna happen
-        event.preventDefault();
-        console.log($(window).scrollTop());
-        console.log(target.offset().top);
-        console.log(target.offset().bottom);
-        if ($(window).width() < 768){
-        console.log($(window).width());
-        if (target.offset().top != $(window).scrollTop()){
-        $('html, body').animate({
-          scrollTop: target.offset().top - 160
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            console.log("Got here");
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-        }
-        }
-            else{
-                console.log($(window).width());
-                $('html, body').animate({
-          scrollTop: target.offset().top
-        }, 1000, function() {
-          // Callback after animation
-          // Must change focus!
-          var $target = $(target);
-          $target.focus();
-          if ($target.is(":focus")) { // Checking if the target was focused
-            return false;
-          } else {
-            console.log("Got here");
-            $target.attr('tabindex','-1'); // Adding tabindex for elements not focusable
-            $target.focus(); // Set focus again
-          };
-        });
-                
-      }
-      }
-    }
-  });
+        // Select all links with hashes
+        $('a[href*="#"]')
+            // Remove links that don't actually link to anything
+            .not('[href="#"]')
+            .not('[href="#0"]')
+            .click(function(event) {
+                // On-page links
+                if (
+                    location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') &&
+                    location.hostname == this.hostname
+                ) {
+                    // Figure out element to scroll to
+                    var target = $(this.hash);
+                    target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                    // Does a scroll target exist?
+                    if (target.length) {
+                        // Only prevent default if animation is actually gonna happen
+                        event.preventDefault();
+                        console.log($(window).scrollTop());
+                        console.log(target.offset().top);
+                        console.log(target.offset().bottom);
+                        if ($(window).width() < 768) {
+                            console.log($(window).width());
+                            if (target.offset().top != $(window).scrollTop()) {
+                                $('html, body').animate({
+                                    scrollTop: target.offset().top - 160
+                                }, 1000, function() {
+                                    // Callback after animation
+                                    // Must change focus!
+                                    var $target = $(target);
+                                    $target.focus();
+                                    if ($target.is(":focus")) { // Checking if the target was focused
+                                        return false;
+                                    } else {
+                                        console.log("Got here");
+                                        $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                        $target.focus(); // Set focus again
+                                    };
+                                });
+                            }
+                        } else {
+                            console.log($(window).width());
+                            $('html, body').animate({
+                                scrollTop: target.offset().top
+                            }, 1000, function() {
+                                // Callback after animation
+                                // Must change focus!
+                                var $target = $(target);
+                                $target.focus();
+                                if ($target.is(":focus")) { // Checking if the target was focused
+                                    return false;
+                                } else {
+                                    console.log("Got here");
+                                    $target.attr('tabindex', '-1'); // Adding tabindex for elements not focusable
+                                    $target.focus(); // Set focus again
+                                };
+                            });
+
+                        }
+                    }
+                }
+            });
+
     </script>
 </body>
+
 </html>
