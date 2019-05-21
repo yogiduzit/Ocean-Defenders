@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class MoneyTurret : MonoBehaviour
 {
+    public bool generate;
     public int money;
     public int timeForMoney;
     // Start is called before the first frame update
@@ -15,11 +16,19 @@ public class MoneyTurret : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameObject.Find("GameMaster").GetComponent<WaveSpawner>().waveIsComplete) {
+            generate = false;
+        }
+        if (!GameObject.Find("GameMaster").GetComponent<WaveSpawner>().waveIsComplete)
+        {
+            generate = true;
+        }
     }
     void AddMoney()
     {
-        PlayerStats.Money += money;
-      
+        if (generate) {
+            PlayerStats.Money += money;
+        }
+            
     }
 }

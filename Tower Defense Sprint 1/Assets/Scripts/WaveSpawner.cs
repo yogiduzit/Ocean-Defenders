@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WaveSpawner : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class WaveSpawner : MonoBehaviour
     public float waveTime = 10f;
 
     // Time for first wave
-    public float countdown = 15f;
+    public float countdown = 1f;
 
     //Number of enemies
     private int yearIndex = 2018;
@@ -26,25 +27,39 @@ public class WaveSpawner : MonoBehaviour
     private int waveNumber = 1;
     public GameObject camRotate;
 
-    public static bool waveIsComplete;
+    public bool waveIsComplete;
+    public Button nextWave;
+    public Text waveText;
+    public Text nextWaveText;
 
+    private GameObject[] enemies;
+    
 
-
-
-    //
 
     // Start is called before the first frame update
     void Start()
     {
-        waveIsComplete = false;
-        StartCoroutine(SpawnWaves());
+        waveIsComplete = true;
 
+        nextWave.onClick.AddListener(Wrapper);
         //clone = Instantiate(enemyPrefab, spawnPoint.position, spawnPoint.rotation);
     }
 
     // Update is called once per frame
     void Update()
     {
+        StartCoroutine(IsWaveComplete());
+
+        if (waveIsComplete && waveNumber != 1)
+        {
+
+            waveText.text = "Wave is complete";
+        }
+        else
+        {
+            waveText.text = "";
+        }
+        ButtonApperance();
 
     }
     IEnumerator SpawnWaves()
@@ -94,25 +109,33 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave1()
     {
 
-       
+        waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
+
         Debug.Log("Wave1");
         // Spawns enemies
         for (int i = 0; i < 6; i++)
         {
-            SpawnEnemyTrash();
             yield return new WaitForSeconds(1f);
+            SpawnEnemyTrash();
+
         }
 
 
-        waveIsComplete = true;
-        StartCoroutine(SpawnWaves());
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
+       /* Debug.Log(enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds);
+        if (enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds)
+        {
+            waveIsComplete = true;
+        }*/
+
 
     }
     IEnumerator SpawnWave2()
     {
-        yield return new WaitForSeconds(countdown);
+
         waveIsComplete = false;
         // Sets the incremented year value to the UI
         IncrementAndSet();
@@ -125,13 +148,10 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
         }
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Time between waves
 
 
-        //Calls the main function again
-
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave3()
     {
@@ -151,12 +171,10 @@ public class WaveSpawner : MonoBehaviour
             }
             yield return new WaitForSeconds(2f);
         }
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
 
-        //Calls the main function again
 
-        StartCoroutine(SpawnWaves());
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
+
     }
     IEnumerator SpawnWave4()
     {
@@ -188,14 +206,9 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
-
-        //Calls the main function again
-
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave5()
     {
@@ -225,21 +238,13 @@ public class WaveSpawner : MonoBehaviour
                 SpawnEnemyCloud();
             }
             yield return new WaitForSeconds(1.5f);
-            /*if (true)
-            {
-                SpawnEnemyDump();
             }
-            */
-        }
 
 
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
 
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave6()
     {
@@ -278,12 +283,10 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
         }
-        //Time between waves
-        yield return new WaitForSeconds(countdown + 5);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
 
-        StartCoroutine(SpawnWaves());
+
     }
     IEnumerator SpawnWave7()
     {
@@ -329,12 +332,9 @@ public class WaveSpawner : MonoBehaviour
         }
 
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown + 5);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
 
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave8()
     {
@@ -379,13 +379,9 @@ public class WaveSpawner : MonoBehaviour
             yield return new WaitForSeconds(1f);
 
         }
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown + 5);
 
-        //Calls the main function again
-
-        StartCoroutine(SpawnWaves());
     }
     IEnumerator SpawnWave9()
     {
@@ -436,17 +432,15 @@ public class WaveSpawner : MonoBehaviour
 
         }
 
-        //Time between waves
-        yield return new WaitForSeconds(countdown + 5);
+        enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-        //Calls the main function again
-       
-        StartCoroutine(SpawnWaves());
+
     }
 
     IEnumerator SpawnWave10()
     {
         waveIsComplete = false;
+
         // Sets the incremented year value to the UI
         // Sub-Wave 1
 
@@ -455,14 +449,6 @@ public class WaveSpawner : MonoBehaviour
             InvokeRepeating("IncrementAndSet", 0, 10f);
         }
 
-
-
-        // Spawns enemies
-        // InvokeRepeating("SpawnEnemyTrash", 1f, 2f);
-        /* InvokeRepeating("SpawnEnemyDump", 5f, 8f);
-         InvokeRepeating("SpawnEnemyCloud", 3f, 5f);
-         InvokeRepeating("SpawnEnemyTrashCan", 3f, 5f);
-         */
         for (int i = 0; yearIndex <= 2040; i++)
         {
 
@@ -519,21 +505,21 @@ public class WaveSpawner : MonoBehaviour
 
             if (yearIndex == 2040)
             {
+                enemies = GameObject.FindGameObjectsWithTag("Enemy");
 
-                StartCoroutine(SpawnWaves());
             }
-            yield return new WaitForSeconds(2f);
+           
         }
 
     }
-    /*void SpawnWave()
+    void BossWave()
     {
-        SpawnEnemyTrash();
-        SpawnEnemyTrash();
-        SpawnEnemyTrash();
-        SpawnEnemyTrash();
-    }*/
-
+        if (bossPrefab != null)
+        {
+            Quaternion boss = new Quaternion(spawnPoint.rotation.x, spawnPoint.rotation.y + 180, spawnPoint.rotation.z, spawnPoint.rotation.w);
+            Instantiate(bossPrefab, spawnPoint.position, spawnPoint.rotation);
+        }
+    }
     void IncrementAndSet()
         {
             waveNumber++;
@@ -588,22 +574,59 @@ public class WaveSpawner : MonoBehaviour
         }
 
     }
-    void BossWave()
+    void Wrapper()
     {
-    if (bossPrefab != null)
+        if (waveIsComplete)
         {
-            Quaternion boss = new Quaternion(spawnPoint.rotation.x, spawnPoint.rotation.y + 180, spawnPoint.rotation.z, spawnPoint.rotation.w);
-            Instantiate(bossPrefab, spawnPoint.position, spawnPoint.rotation);
+            StartCoroutine(SpawnWaves());
         }
     }
-
-
-}
-
-/*  int NumberEnemyTrash(int waveIndex)
+    IEnumerator IsWaveComplete()
     {
-        this.waveIndex = waveIndex * wave
-        return 0;
+        if (enemies != null && enemies[enemies.Length - 1] != null)
+        {
+
+            if (enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds)
+            {
+
+                yield return new WaitForSeconds(1.0f);
+                //Debug.Log(enemies[enemies.Length - 1].GetComponent<Pathing>().OutOfBounds);
+                waveIsComplete = true;
+            }
+        }
+
     }
+    void ButtonApperance()
+    {
+        if (!waveIsComplete)
+        {
+            nextWaveText.text = "Wave \nrunning";
+            nextWave.interactable = false;
+            nextWave.GetComponent<Image>().color = Color.gray;
+            
+
+        }
+        else if (waveIsComplete && waveNumber == 1)
+        {
+            nextWaveText.text = "Start Wave";
+            nextWave.interactable = true;
+            nextWave.GetComponent<Image>().color = Color.white;
+        }
+        else 
+        {
+            nextWaveText.text = "Start Next \nWave";
+            nextWave.interactable = true;
+            nextWave.GetComponent<Image>().color = Color.white;
+        } 
+
+    }
+    void SetTransparency()
+    {
+        //var col = nextWave.GetComponent<Renderer>().material.color;
+        //col.a = 0.5f;
+    }
+
+
+
 }
-*/
+

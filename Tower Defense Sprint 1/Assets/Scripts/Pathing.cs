@@ -12,7 +12,7 @@ public class Pathing : MonoBehaviour
     private int waypointIndex;
     Enemy enemy;
     private float t;
-    private bool OutOfBounds;
+    public bool OutOfBounds;
 
 
     // Start is called before the first frame update
@@ -21,7 +21,7 @@ public class Pathing : MonoBehaviour
         target = Waypoints.waypoints[0];
         enemy = gameObject.GetComponent<Enemy>();
         nextTarget = Waypoints.waypoints[1];
-
+        OutOfBounds = false;
 
 
 
@@ -52,26 +52,24 @@ public class Pathing : MonoBehaviour
                 break;
 
         }
-        /*if (waypointIndex != 0)
-        {
-            Vector3 rotationVec = new Vector3(0, -180 + FindAngle(transform, nextTarget) / Mathf.Deg2Rad, 0);
 
-            transform.eulerAngles = rotationVec;
-        }*/
 
        
     } 
-    void GetNextWaypoint()
+    IEnumerator GetNextWaypoint()
         {
-            if (waypointIndex >= Waypoints.waypoints.Length - 1)
+        OutOfBounds = false;
+        if (waypointIndex >= Waypoints.waypoints.Length - 1)
             {
+            Debug.Log(OutOfBounds);
             /* Need to find some other way around destroy
              * Right now, As the first enemy gets destroyed
              * the rest of them cannot access its prefab. */
-            
+            OutOfBounds = true;
+            yield return new WaitForSeconds(0.3f);
             Destroy(gameObject);
             DecreaseLives();
-            return;
+            yield return null;
             }
             
             waypointIndex++;
@@ -92,7 +90,7 @@ public class Pathing : MonoBehaviour
             transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
             if (Vector3.Distance(transform.position, target.position) <= 8.1f)
             {
-                GetNextWaypoint();
+                StartCoroutine(GetNextWaypoint());
             }
         }
         void PathTrash()
@@ -118,8 +116,8 @@ public class Pathing : MonoBehaviour
             if (Vector3.Distance(transform.position, target.position) <= 2.4f)
             {
 
-            GetNextWaypoint();
-            }
+            StartCoroutine(GetNextWaypoint());
+        }
 
         }
     void PathDump()
@@ -130,7 +128,7 @@ public class Pathing : MonoBehaviour
         transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
         if (Vector3.Distance(transform.position, target.position) <= 1.7f)
         {
-            GetNextWaypoint();
+            StartCoroutine(GetNextWaypoint());
         }
     }
     void PathTrashCan()
@@ -142,7 +140,7 @@ public class Pathing : MonoBehaviour
 
         if (Vector3.Distance(transform.position, target.position) <= 1.7f)
         {
-        GetNextWaypoint();
+            StartCoroutine(GetNextWaypoint());
         }
 
             
@@ -159,7 +157,7 @@ public class Pathing : MonoBehaviour
         if (Vector3.Distance(transform.position, target.position) <= 2.2f )
         {
             transform.eulerAngles = target.rotation.eulerAngles;
-            GetNextWaypoint();
+            StartCoroutine(GetNextWaypoint());
 
 
 

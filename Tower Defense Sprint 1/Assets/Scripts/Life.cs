@@ -33,7 +33,7 @@ public class Life : MonoBehaviour
         wavesText.text = PlayerStats.Waves.ToString();
         lifeText.text = PlayerStats.Health.ToString();
 
-            waveText.text = PlayerStats.waveText;
+           
 
 
 
@@ -44,11 +44,7 @@ public class Life : MonoBehaviour
             
             EndGame();
         }
-       /* if (GameIsOver)
-        {
-            Debug.Log("return");
-            return;
-        }*/
+       
     }
 
     void EndGame ()
