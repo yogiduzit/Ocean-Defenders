@@ -1,27 +1,38 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement; 
 
-public class GameOver : MonoBehaviour
-{
+public class GameOver : MonoBehaviour {
     public Text roundsText;
+    public GameObject leaderBoard;
 
-    void OnEnable()
-    {
-        roundsText.text = PlayerStats.Waves.ToString();
+    //Shows rounds survived on game over screen
+    void OnEnable () {
+        roundsText.text = PlayerStats.Waves.ToString ();
     }
 
-    public void Retry ()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Life.GameIsOver = false;
-    }
+    public void LoadHighScoreScene () {
 
-    public void Menu ()
-    {
-        SceneManager.LoadScene(0);
+        leaderBoard.GetComponent<Leaderboard> ().PullScores (); //pull the high scores
+
+        if (StaticEndGame.LowestHighScore.Score < PlayerStats.Waves) {
+
+            //if the player's score is greater than the smallest high score 
+            SceneManager.LoadScene ("Submit Score");
+
+            StaticEndGame.Waves = PlayerStats.Waves; // sets the high score of the player to this.
+            Debug.Log (StaticEndGame.LowestHighScore.Score);
+            Debug.Log (PlayerStats.Waves);
+        } else {
+
+            //Do nothing
+            Debug.Log (StaticEndGame.LowestHighScore.Score);
+            Debug.Log (PlayerStats.Waves);
+
+        }
+
     }
 
 }

@@ -28,7 +28,7 @@ public class Shop : MonoBehaviour {
             enemies = GameObject.FindGameObjectsWithTag("Enemy");
             for (int i = 0; i < enemies.Length; i++) {
                  Enemy anEnemy = enemies[i].GetComponent<Enemy>();
-                anEnemy.takeDamage(70);
+                anEnemy.takeDamage(90);
             }
             InvokeRepeating("refreshButton", 50f, 50f);
         }

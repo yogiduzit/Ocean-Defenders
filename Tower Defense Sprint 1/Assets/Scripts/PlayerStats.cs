@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerStats : MonoBehaviour {
 
@@ -9,7 +10,6 @@ public class PlayerStats : MonoBehaviour {
     public int startHealth = 500; // The player's starting health
     public static int Waves; // The number of waves that the player has survived.
     public static int lives = 50;
-    public static string waveText;
 
     private void Start () {
         Money = startMoney;
@@ -18,14 +18,7 @@ public class PlayerStats : MonoBehaviour {
     }
     private void Update()
     {
-        if (WaveSpawner.waveIsComplete)
-        {
-            waveText = "Wave is complete";
-        }
-        else
-        {
-            waveText = "";
-        }
+
     }
 
 
