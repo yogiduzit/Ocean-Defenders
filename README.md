@@ -13,9 +13,9 @@ https://ocean-defenders.firebaseapp.com/
 * [HTML / CSS](https://www.w3schools.com/html/html_css.asp) - Frameworks for our webpages
 * [Bootstrap](https://getbootstrap.com/) - Bootstrap is an open source toolkit for developing with HTML, CSS, and JS. 
 
-## Versioning
+## Version Control
 
-We use [GitHub] for versioning. For the versions available, see the [tags on this repository](https://github.com/yogiduzit/Team-11-COMP-2930). 
+We use [GitHub] for version control. For the versions available, see the [tags on this repository](https://github.com/yogiduzit/Team-11-COMP-2930). 
 
 ## Authors
 
