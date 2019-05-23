@@ -1,0 +1,333 @@
+#about{height: auto;}
+        body {
+            overflow-x: hidden !important;
+        }
+        
+            
+            
+        
+       
+        
+        #information{
+            height: auto; 
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            color: black;
+            /**
+            -webkit-text-fill-color: white; /* Will override color (regardless of order)
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            **/
+            
+            background-image: url("../images/body.jpg");
+            
+            /**
+            background-color: #18222B;
+            **/
+            background-repeat: repeat;
+            background-attachment: scroll;
+            margin-bottom: 0;
+        }
+        
+        #download{
+            display: none;
+        }
+        
+        #download1{
+            display: none;
+        }
+        
+        #play1{
+            height: 100vh; 
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            /**
+            background-image: url('gamebg.jpg');
+            background-size: cover;
+            **/
+            /**
+            background-color: #18222B;
+            **/
+            /**
+            background-repeat: no-repeat;
+            background-attachment: scroll;
+            **/
+            margin-bottom: 0;
+            margin-bottom: 0;
+            
+            background-image: url("../images/body.jpg");
+            
+            /**
+            background-color: #18222B;
+            **/
+            
+            background-repeat: repeat;
+            background-attachment: scroll;
+            margin-bottom: 0;
+        }
+        #play{
+            height: auto; 
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            -webkit-text-fill-color: white; /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            margin-bottom: 0;
+            margin: 0 auto !important;
+        }
+        /**
+        html {scroll-behavior: smooth;}
+        **/
+        #head{
+            /** height: calc(100vh - 83px); **/
+            height: 70vh;
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            /**
+            -webkit-text-fill-color: white; /* Will override color (regardless of order) */ /**
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            **/
+        }
+        
+        #about1{
+            height: 100vh; 
+            width: 100%;
+            text-align: center;
+            vertical-align: middle;
+            /**
+            -webkit-text-fill-color: white;  /* Will override color (regardless of order) 
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+            **/
+        }
+        
+        #about1{
+            background-image: url("https://images.unsplash.com/photo-1500993855538-c6a99f437aa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin-bottom: 0;
+            width: 100%
+        }
+        
+        #about2{
+            display: none !important;
+        }
+        
+        .border-dark{
+            color: #654321 !important;
+        }
+        
+        #head2{
+            background-image: url("https://media.discordapp.net/attachments/570340253714350213/580217116515631156/LowPolyStylizedEnvironment_Screenshot_1-1920x1080-8df4e79cb034ee271f254f8959518966.png?width=1696&height=954");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin-bottom: 0;
+            width: 100%;
+        }
+        
+        
+        canvas{
+            justify-content: center;
+            margin: 0 auto;
+}
+        
+        /** bootstrap navbar fix **/
+        /** taken from https://stackoverflow.com/questions/20553572/how-to-increase-bootstrap-3-navbar-height-while-keeping-menu-height-small-when-c **/
+        
+        
+        .navbar-fixed-top {
+            min-height: 80px;
+        }
+        .navbar-nav > li > a {
+            padding-top: 0px;
+            padding-bottom: 0px;
+            line-height: 80px;
+        }
+        @media (min-width: 768px) {
+            #factslist{
+                padding-left: 10vw !important;
+                padding-right: 10vw !important;
+            }
+        }
+        
+        /** End bootstrap navbar fix **/
+        
+        @media (max-width: 767px) {
+            #easter{
+                display: none;
+            }
+            
+            #head2{
+                background-image:url('https://media.discordapp.net/attachments/570340253714350213/580217116515631156/LowPolyStylizedEnvironment_Screenshot_1-1920x1080-8df4e79cb034ee271f254f8959518966.png?width=1696&height=954');
+            }
+            
+            #playm{
+                display: block !important;
+            }
+            
+            #mainav{
+                background-image: none !important;
+            }
+            
+            #foot{
+                background-image: none !important;
+            }
+            #playnow{
+                display: none;
+            }
+            #play23{
+                display: none;
+            }
+            
+            #download{
+                display: inline-block;
+                height: 100vh;
+                background-color: lightskyblue;
+                width: 100vw;
+                text-align: center;
+            }
+            #download1{
+                display: inline-block;
+            }
+            
+            #head{
+            /** height: calc(100vh - 40px); **/
+            height: calc(80vh); 
+            }
+            
+            .navbar-nav > li > a {
+            line-height: 20px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            }
+            
+            #information{
+                /**
+                background-image: url('https://images.unsplash.com/photo-1527100673774-cce25eafaf7f?ixlib=rb-1.2.1&auto=format&fit=crop&w=668&q=80');
+                **/
+                background-color: #6e747d;
+                
+                /**
+                background-image: none;
+                background-color: #003366;
+                **/
+            }
+            
+            
+            /**
+            #about1{
+                background-image: none !important;
+                background-color: #8B4513 !important;
+            }
+            **/
+            
+            #about{
+                display: none !important;
+            }
+            
+            #about1{
+                background-image: url('https://images.unsplash.com/photo-1531273776218-7d1bd4db5447?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=668&q=80') !important;
+                -webkit-text-fill-color: none;  /* Will override color (regardless of order) */
+                -webkit-text-stroke-width: 0px;
+                -webkit-text-stroke-color: none;
+            }
+            #about2{
+                display: inline-block !important;
+                width: 80% !important;
+                /**
+                background-image: url("https://images.unsplash.com/photo-1500993855538-c6a99f437aa7?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80");
+                **/
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                margin-bottom: 0;
+                width: 100%;
+                vertical-align: middle !important;
+                background-color: #3f2a14;
+            }
+            
+            
+            
+            .card{
+                display: block !important;
+                width: 100% !important;
+            }
+            
+            
+            #play1{
+                /**
+                background-image: url('https://images.unsplash.com/photo-1557591560-a4380d09c622?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80');
+                **/
+                background-color: #6e747d;
+                /**
+                background-color: #3A5F0B;
+                **/
+            }
+            /**
+            #home{
+                display: none;
+            }
+            **/
+            #brand{
+                display: none;
+            }
+            
+            #information{background-attachment: scroll;}
+            #play1{background-attachment: scroll;}
+            #about{background-attachment: scroll;}
+            #about1{background-attachment: scroll; text-align: center; display: flex!important;}
+            #about2{background-attachment: scroll;}
+            #head2{background-attachment: scroll;}
+        }
+        .border-3 {
+            border-width: 5px !important;
+            border-style: solid !important;
+            border-color:#353a40 !important;
+        }
+        
+        
+        @media (min-width: 1060px) and (min-height: 700px) {
+            #unityContainer {
+                height: 600px !important;
+                width: 960px !important;
+            }
+        }
+        
+  
+        
+        h1{
+            font-family: 'Carter One', cursive; 
+            -webkit-text-fill-color: white;  /* Will override color (regardless of order) */
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: black;
+        }
+        
+        .navbar-nav .nav-item .nav-link {
+    color: white;
+}
+.navbar-nav .nav-item.active .nav-link,
+.navbar-nav .nav-item:hover .nav-link {
+    color: #E1BB40;
+    text-decoration: underline;
+    text-decoration-color: #E1BB40;
+}
+        
+        #playnow:hover{
+            background: transparent url("../images/play.png") no-repeat !important;
+            width:655px !important;
+        }
+        
+        #playm{
+            display: none;
+        }
+        
