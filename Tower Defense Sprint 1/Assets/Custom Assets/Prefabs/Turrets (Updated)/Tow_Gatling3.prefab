@@ -248,7 +248,7 @@ GameObject:
   - component: {fileID: 6530440318040567571}
   m_Layer: 0
   m_Name: Tow_Gatling3
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -282,15 +282,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 12.5
   enemyTag: Enemy
+  enemyType: 
   waitTime: 0
   seekRate: 0.5
   turnSpeed: 10
-  firePoint: {fileID: 1067067475}
+  firePoints:
+  - {fileID: 1067067475}
   partToRotate: {fileID: 400004}
   useLaser: 0
   damageOverTime: 65
   slowAmount: 0.5
-  lineRenderer: {fileID: 0}
+  lasers: []
   impactLight: {fileID: 0}
   fireRate: 2.5
   bulletPrefab: {fileID: 3029406521755424549, guid: 582dcbd00a64a4c0ba7fb183ef095a41,
@@ -337,7 +339,7 @@ GameObject:
   - component: {fileID: 1067067475}
   m_Layer: 0
   m_Name: FirePoint
-  m_TagString: Untagged
+  m_TagString: Firepoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

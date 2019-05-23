@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 725639032112980765}
   m_Layer: 0
   m_Name: Tow_Acid1
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -306,12 +306,13 @@ MonoBehaviour:
   waitTime: 0
   seekRate: 0.5
   turnSpeed: 10
-  firePoint: {fileID: 1969130017}
+  firePoints: []
   partToRotate: {fileID: 400006}
   useLaser: 0
   damageOverTime: 30
+  useSlow: 0
   slowAmount: 0
-  lineRenderer: {fileID: 0}
+  lasers: []
   impactLight: {fileID: 0}
   fireRate: 1
   bulletPrefab: {fileID: 3029406521755424549, guid: 582dcbd00a64a4c0ba7fb183ef095a41,
@@ -333,7 +334,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!65 &725639032112980765
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -342,10 +343,10 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 100006}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 0.1, z: 0.1}
+  m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1969130016
 GameObject:
@@ -358,7 +359,7 @@ GameObject:
   - component: {fileID: 1969130017}
   m_Layer: 0
   m_Name: Firepoint
-  m_TagString: Untagged
+  m_TagString: Firepoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

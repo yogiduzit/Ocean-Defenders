@@ -23,6 +23,10 @@ public class Node : MonoBehaviour {
     [Header ("Optional")]
     public GameObject turret;
 
+    [Header("Camera Rotate")]
+    private CameraShake cam;
+    private GameObject cameraRot;
+
     // Start is called before the first frame update
     void Start () {
         cachedRenderer = GetComponent<Renderer> ();
@@ -31,6 +35,9 @@ public class Node : MonoBehaviour {
         buildManager = BuildManager.instance;
         activeEffect = null;
         isUpgraded = 0;
+
+        cameraRot = GameObject.FindGameObjectWithTag("CameraRotator");
+        cam = cameraRot.GetComponent<CameraShake>();
     }
 
     // Update is called once per frame
@@ -41,12 +48,12 @@ public class Node : MonoBehaviour {
     private void OnMouseEnter () {
         if (buildManager.hasMoney && turret == null) {
             //cachedRenderer.material.color = hoverColor;
-            activeEffect = (ParticleSystem) Instantiate (hoverEnoughEffect, transform.position, Quaternion.identity);
+            //activeEffect = (ParticleSystem) Instantiate (hoverEnoughEffect, transform.position, Quaternion.identity);
         } else if (turret != null || !buildManager.hasSelected) {
             // do nothing
             // there is already a turret on this node.
         } else {
-            activeEffect = (ParticleSystem) Instantiate (hoverNotEnoughEffect, transform.position, Quaternion.identity);
+            //activeEffect = (ParticleSystem) Instantiate (hoverNotEnoughEffect, transform.position, Quaternion.identity);
         }
 
     }
@@ -153,6 +160,21 @@ public class Node : MonoBehaviour {
 
             Debug.Log ("Turret build!");
 
+
+            
+
+        }
+
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+
+        if (other.CompareTag("Turret"))
+        {
+            Debug.Log("Collision");
+            other.isTrigger = false;
+            StartCoroutine(cam.Shake(0.2f, 0.4f));
+            
         }
     }
 

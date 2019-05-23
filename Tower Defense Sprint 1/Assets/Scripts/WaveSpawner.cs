@@ -27,7 +27,11 @@ public class WaveSpawner : MonoBehaviour
     private int waveNumber = 1;
     public GameObject camRotate;
 
+<<<<<<< HEAD
     private bool waveIsComplete;
+=======
+    public bool waveIsComplete;
+>>>>>>> 7adbca58f6881c416de82c0a12ae6b3901b389fa
     public Button nextWave;
     public Text waveText;
     public Text nextWaveText;

@@ -276,7 +276,7 @@ GameObject:
   - component: {fileID: 5517445929701371889}
   - component: {fileID: -5223479882950261251}
   m_Layer: 0
-  m_Name: Enemy2 1 Variant
+  m_Name: Dump
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -359,9 +359,9 @@ MonoBehaviour:
     type: 3}
   enemyType: Dump
   speed: 0
-  startHealth: 400
+  startHealth: 1600
   explosionSound: {fileID: 8300000, guid: ccd6f0123336b4a56ad6117c10961f01, type: 3}
-  worth: 50
+  worth: 15
   healthBar: {fileID: 5007918883827827837}
 --- !u!82 &-5223479882950261251
 AudioSource:
@@ -1270,7 +1270,12 @@ PrefabInstance:
     - target: {fileID: 3698115228092773204, guid: eb4e68d3c03cb44a79ae2adf4e6617d8,
         type: 3}
       propertyPath: startHealth
-      value: 400
+      value: 1600
+      objectReference: {fileID: 0}
+    - target: {fileID: 3698115228092773204, guid: eb4e68d3c03cb44a79ae2adf4e6617d8,
+        type: 3}
+      propertyPath: worth
+      value: 15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eb4e68d3c03cb44a79ae2adf4e6617d8, type: 3}

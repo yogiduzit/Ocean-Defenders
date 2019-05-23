@@ -7,7 +7,10 @@ public class Pathing : MonoBehaviour
 {
 
     public float speed;
+<<<<<<< HEAD
     public static float acceleration = 2;
+=======
+>>>>>>> 7adbca58f6881c416de82c0a12ae6b3901b389fa
     private Transform target;
     private Transform nextTarget;
     private int waypointIndex;
@@ -111,7 +114,11 @@ public class Pathing : MonoBehaviour
              * the frame rate.
              * Space.World tells it to move relative to the world.       
              */
+<<<<<<< HEAD
             transform.Translate(dir.normalized * enemy.speed * acceleration * Time.deltaTime, Space.World);
+=======
+            transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+>>>>>>> 7adbca58f6881c416de82c0a12ae6b3901b389fa
 
 
             if (Vector3.Distance(transform.position, target.position) <= 2.4f)
@@ -126,7 +133,11 @@ public class Pathing : MonoBehaviour
         Vector3 dirDump = new Vector3(target.position.x, target.position.y - 1 + (0.5f * Mathf.Sin(2 * Mathf.PI * t)), target.position.z);
         Vector3 dir = dirDump - transform.position;
 
+<<<<<<< HEAD
         transform.Translate(dir.normalized * enemy.speed * acceleration * Time.deltaTime, Space.World);
+=======
+        transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+>>>>>>> 7adbca58f6881c416de82c0a12ae6b3901b389fa
         if (Vector3.Distance(transform.position, target.position) <= 1.7f)
         {
             StartCoroutine(GetNextWaypoint());
@@ -137,7 +148,11 @@ public class Pathing : MonoBehaviour
         Vector3 dirTrashCan = new Vector3(target.position.x + (0.5f * Mathf.Sin(2 * Mathf.PI * t)), target.position.y - 1, target.position.z);
         Vector3 dir = dirTrashCan - transform.position;
 
+<<<<<<< HEAD
         transform.Translate(dir.normalized * enemy.speed * acceleration * Time.deltaTime, Space.World);
+=======
+        transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+>>>>>>> 7adbca58f6881c416de82c0a12ae6b3901b389fa
 
         if (Vector3.Distance(transform.position, target.position) <= 1.7f)
         {
@@ -152,7 +167,11 @@ public class Pathing : MonoBehaviour
         Vector3 dirBoss = new Vector3(target.position.x, target.position.y + - 2, target.position.z);
         Vector3 dir = dirBoss - transform.position;
 
+<<<<<<< HEAD
         transform.Translate(dir.normalized * enemy.speed * acceleration * Time.deltaTime, Space.World);
+=======
+        transform.Translate(dir.normalized * enemy.speed * Time.deltaTime, Space.World);
+>>>>>>> 7adbca58f6881c416de82c0a12ae6b3901b389fa
        
 
         if (Vector3.Distance(transform.position, target.position) <= 2.2f )

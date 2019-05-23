@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: 8336364805026236985}
   m_Layer: 0
   m_Name: Tow_Acid3
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -302,15 +302,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   range: 17.5
   enemyTag: Enemy
+  enemyType: 
   waitTime: 0
   seekRate: 0.5
   turnSpeed: 10
   firePoint: {fileID: 9111360798516996025}
+  firePoint2: {fileID: 0}
   partToRotate: {fileID: 400006}
   useLaser: 0
   damageOverTime: 60
   slowAmount: 0
-  lineRenderer: {fileID: 0}
   impactLight: {fileID: 0}
   fireRate: 1
   bulletPrefab: {fileID: 3029406521755424549, guid: 582dcbd00a64a4c0ba7fb183ef095a41,
@@ -357,7 +358,7 @@ GameObject:
   - component: {fileID: 9111360798516996025}
   m_Layer: 0
   m_Name: Firepoint
-  m_TagString: Untagged
+  m_TagString: Firepoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

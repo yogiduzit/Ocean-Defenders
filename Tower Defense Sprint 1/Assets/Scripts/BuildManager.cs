@@ -12,7 +12,10 @@ public class BuildManager : MonoBehaviour {
 
     public bool CanBuild { get { return turretToBuild != null; } } // A C# Property 
 
-    private void Start () { }
+    private void Start () 
+    { 
+
+    }
     private void Awake () {
         if (instance != null) {
             Debug.Log ("Build Manager has already been instantiated. ERROR: There should only be one Build Manager within the game.");

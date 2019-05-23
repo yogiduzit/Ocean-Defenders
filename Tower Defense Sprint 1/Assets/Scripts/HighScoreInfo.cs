@@ -9,8 +9,8 @@ public class HighScoreInfo : IComparable {
 
     public HighScoreInfo () {
 
-        this.Name = "herbert";
-        this.Score = 6969;
+        this.Name = "ERROR";
+        this.Score = 99999;
     }
     public HighScoreInfo (string name, int score) {
 

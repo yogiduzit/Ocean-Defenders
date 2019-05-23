@@ -111,9 +111,9 @@ MonoBehaviour:
     type: 3}
   enemyType: Cloud
   speed: 0
-  startHealth: 50
+  startHealth: 100
   explosionSound: {fileID: 8300000, guid: ccd6f0123336b4a56ad6117c10961f01, type: 3}
-  worth: 30
+  worth: 10
   healthBar: {fileID: 1081088839902268619}
 --- !u!82 &8277587422023545797
 AudioSource:

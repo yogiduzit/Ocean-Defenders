@@ -430,14 +430,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7f9ab0b878c647b5b859c0a67af03b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 10
+  startSpeed: 3
   deathEffect: {fileID: 6162686272887025746, guid: fd7e45656ffce41b5934059a817cca0e,
     type: 3}
   enemyType: Trash Can
   speed: 0
-  startHealth: 100
+  startHealth: 350
   explosionSound: {fileID: 8300000, guid: ccd6f0123336b4a56ad6117c10961f01, type: 3}
-  worth: 20
+  worth: 10
   healthBar: {fileID: 2371816823027797558}
 --- !u!114 &7444784907985509937
 MonoBehaviour:
@@ -452,7 +452,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9dac5743aaf84fcc9ca01f3f98cf048, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3.5
+  speed: 3
 --- !u!1 &4826463671520218315
 GameObject:
   m_ObjectHideFlags: 0
@@ -730,17 +730,22 @@ PrefabInstance:
     - target: {fileID: 1051959657060718187, guid: 67760211b5219465cab82757dc081caf,
         type: 3}
       propertyPath: startHealth
-      value: 100
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 1051959657060718187, guid: 67760211b5219465cab82757dc081caf,
         type: 3}
       propertyPath: worth
-      value: 20
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1051959657060718187, guid: 67760211b5219465cab82757dc081caf,
+        type: 3}
+      propertyPath: startSpeed
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8287407083781924680, guid: 67760211b5219465cab82757dc081caf,
         type: 3}
       propertyPath: speed
-      value: 3.5
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67760211b5219465cab82757dc081caf, type: 3}

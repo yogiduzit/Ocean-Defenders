@@ -113,6 +113,11 @@ PrefabInstance:
       propertyPath: enemyType
       value: Boss
       objectReference: {fileID: 0}
+    - target: {fileID: 8142216660017038219, guid: 75066bfe1b07e456dbe9a3bacb34d429,
+        type: 3}
+      propertyPath: startHealth
+      value: 4000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 75066bfe1b07e456dbe9a3bacb34d429, type: 3}
 --- !u!114 &2069425811775610424 stripped

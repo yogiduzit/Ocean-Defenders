@@ -238,7 +238,7 @@ GameObject:
   - component: {fileID: -3003790572682042745}
   m_Layer: 0
   m_Name: Tow_Crossbow3
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,20 +289,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e28a7e26b1ab4cf09fc42e70aab686b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 20
+  range: 22
   enemyTag: Enemy
   enemyType: 
   waitTime: 0
   seekRate: 0.5
   turnSpeed: 10
-  firePoint: {fileID: 1377578057}
+  firePoints:
+  - {fileID: 1377578057}
   partToRotate: {fileID: 400006}
   useLaser: 0
   damageOverTime: 30
   slowAmount: 0.5
-  lineRenderer: {fileID: 0}
+  lasers: []
   impactLight: {fileID: 0}
-  fireRate: 0.6
+  fireRate: 0.75
   bulletPrefab: {fileID: 6067020575384570433, guid: d23545ada2ec1c042892c76b218490dc,
     type: 3}
   impactEffect: {fileID: 6162686272887025744, guid: fd7e45656ffce41b5934059a817cca0e,
@@ -347,7 +348,7 @@ GameObject:
   - component: {fileID: 1377578057}
   m_Layer: 0
   m_Name: Firepoint
-  m_TagString: Untagged
+  m_TagString: Firepoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

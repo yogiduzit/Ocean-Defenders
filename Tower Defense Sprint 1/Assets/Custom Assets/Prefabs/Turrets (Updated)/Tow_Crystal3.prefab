@@ -249,7 +249,7 @@ GameObject:
   - component: {fileID: -704540359975838794}
   m_Layer: 0
   m_Name: Tow_Crystal3
-  m_TagString: Untagged
+  m_TagString: Turret
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -300,21 +300,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e28a7e26b1ab4cf09fc42e70aab686b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  range: 13
+  range: 16
   enemyTag: Enemy
   enemyType: 
   waitTime: 0
   seekRate: 0.5
   turnSpeed: 10
-  firePoint: {fileID: 1980304856}
+  firePoints:
+  - {fileID: 1980304856}
   partToRotate: {fileID: 400004}
   useLaser: 0
   damageOverTime: 30
-  slowAmount: 0.75
-  lineRenderer: {fileID: 0}
+  useSlow: 1
+  slowAmount: 0.3
+  lasers: []
   impactLight: {fileID: 0}
-  fireRate: 2
-  bulletPrefab: {fileID: 7600274527466632216, guid: f03edfa9c23e197458ff5666817ab2ec,
+  fireRate: 0.85
+  bulletPrefab: {fileID: 2173554872961068431, guid: 38774d5a508b85746a41a809c4e941fa,
     type: 3}
   impactEffect: {fileID: 19800002, guid: 906ef3748a66347cfb2d72de10092732, type: 3}
 --- !u!65 &1449820615446116188
@@ -357,7 +359,7 @@ GameObject:
   - component: {fileID: 1980304856}
   m_Layer: 0
   m_Name: Firepoint
-  m_TagString: Untagged
+  m_TagString: Firepoint
   m_Icon: {fileID: 7174288486110832750, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

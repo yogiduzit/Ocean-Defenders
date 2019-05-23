@@ -1,11 +1,11 @@
-﻿﻿using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour {
     private Transform target;
     private ArrayList hitTargets;
     public float speed = 70f;
-    public string enemyTag = "Enemy";
+    public string enemyTag = "Shootable";
     public float bounceRange = 5.0f;
     public int damage = 50;
     public GameObject impactEffect;
@@ -59,6 +59,7 @@ public class Bullet : MonoBehaviour {
         if (e != null) {
 
             e.takeDamage (damage);
+
         }
     }
     void FindBounceTarget () {

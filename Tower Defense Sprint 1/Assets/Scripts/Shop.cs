@@ -8,6 +8,38 @@ public class Shop : MonoBehaviour {
     public TurretBluePrint poisonTurret;
     public TurretBluePrint moneyTurret;
 
+    public Sprite OffSprite;
+    public Sprite OnSprite;
+    public UnityEngine.UI.Button but;
+
+
+
+    public void refreshButton() {
+        but.image.sprite = OnSprite;
+    }
+
+    public void ChangeImage()
+    {
+        Debug.Log("Clicked");
+        Debug.Log(OffSprite);
+        if (but.image.sprite == OnSprite) {
+            but.image.sprite = OffSprite;
+            GameObject[] enemies;
+            enemies = GameObject.FindGameObjectsWithTag("Enemy");
+            for (int i = 0; i < enemies.Length; i++) {
+                 Enemy anEnemy = enemies[i].GetComponent<Enemy>();
+                anEnemy.takeDamage(90);
+            }
+            InvokeRepeating("refreshButton", 50f, 50f);
+        }
+
+        
+    }
+
+
+
+
+
     public void purchaseTree()
     {
         Debug.Log("Plant the tree.");

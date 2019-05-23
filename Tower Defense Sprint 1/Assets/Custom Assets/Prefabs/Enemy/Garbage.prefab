@@ -10,7 +10,7 @@ PrefabInstance:
     - target: {fileID: 1840117941854636035, guid: 967d5d688d32d4da88af1b4cb73c3d6e,
         type: 3}
       propertyPath: m_Name
-      value: TRASH 1 1 1 Variant Variant
+      value: Garbage
       objectReference: {fileID: 0}
     - target: {fileID: 2907605330774577465, guid: 967d5d688d32d4da88af1b4cb73c3d6e,
         type: 3}
@@ -66,6 +66,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185715984693326647, guid: 967d5d688d32d4da88af1b4cb73c3d6e,
+        type: 3}
+      propertyPath: speed
+      value: 6.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185715984693326644, guid: 967d5d688d32d4da88af1b4cb73c3d6e,
+        type: 3}
+      propertyPath: startHealth
+      value: 90
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185715984693326644, guid: 967d5d688d32d4da88af1b4cb73c3d6e,
+        type: 3}
+      propertyPath: worth
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2185715984693326644, guid: 967d5d688d32d4da88af1b4cb73c3d6e,
+        type: 3}
+      propertyPath: startSpeed
+      value: 6.5
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6812159123428217550, guid: 967d5d688d32d4da88af1b4cb73c3d6e, type: 3}
