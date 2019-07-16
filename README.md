@@ -2,6 +2,9 @@
 
 A WebGL / Android game that helps raise awareness regarding the impacts of improper waste disposal through an interactive and fun tower-defense game about garbage and the ocean. 
 
+
+![Poster of Ocean-Defenders](https://github.com/yogiduzit/Ocean-Defenders/blob/master/Marketing%20Poster.jpg)
+
 https://ocean-defenders.firebaseapp.com/
 
 
