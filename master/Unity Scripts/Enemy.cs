@@ -53,8 +53,6 @@ public class Enemy : MonoBehaviour {
         AudioSource myDeathSound = this.GetComponent<AudioSource> ();
         if (explosionSound != null) {
             myDeathSound.PlayOneShot (explosionSound, 1.0f);
-        } else {
-            //Do nothing as there is no explosion sound attached to this object
         }
         isDead = true;
         PlayerStats.Money += worth;
